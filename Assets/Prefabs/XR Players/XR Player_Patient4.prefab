@@ -4074,7 +4074,7 @@ GameObject:
   - component: {fileID: 5750472210152752533}
   m_Layer: 0
   m_Name: Ch01_Shirt
-  m_TagString: Untagged
+  m_TagString: PlayerUpperBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6817,7 +6817,7 @@ GameObject:
   - component: {fileID: 5750472211544188258}
   - component: {fileID: 1571287461047028857}
   m_Layer: 0
-  m_Name: Patient4
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8264,7 +8264,7 @@ GameObject:
   - component: {fileID: 5750472212280200956}
   m_Layer: 0
   m_Name: Ch01_Pants
-  m_TagString: Untagged
+  m_TagString: PlayerLegs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

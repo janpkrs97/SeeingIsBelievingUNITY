@@ -6897,7 +6897,7 @@ GameObject:
   - component: {fileID: 8882387174969670385}
   m_Layer: 0
   m_Name: Ch27_Shirt
-  m_TagString: Untagged
+  m_TagString: PlayerUpperBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7744,7 +7744,7 @@ GameObject:
   - component: {fileID: 8882387175404573375}
   m_Layer: 0
   m_Name: Ch27_Pants
-  m_TagString: Untagged
+  m_TagString: PlayerLegs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9551,7 +9551,7 @@ GameObject:
   - component: {fileID: 8882387176285065644}
   m_Layer: 0
   m_Name: Ch27_Suit
-  m_TagString: Untagged
+  m_TagString: PlayerUpperBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10114,7 +10114,7 @@ GameObject:
   - component: {fileID: 8882387176515008838}
   - component: {fileID: 857408191240535423}
   m_Layer: 0
-  m_Name: Patient3
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

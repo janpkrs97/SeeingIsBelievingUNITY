@@ -9717,7 +9717,7 @@ GameObject:
   - component: {fileID: 8586118621746935547}
   - component: {fileID: 1983486946646141964}
   m_Layer: 0
-  m_Name: Mannequin
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

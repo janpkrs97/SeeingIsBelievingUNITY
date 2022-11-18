@@ -58,4 +58,37 @@ public class PlayerController : MonoBehaviour
         GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
         spawnedPlayer.GetComponentInChildren<CalibratePlayerSize>().ShrinkArms();
     }
+
+    public void VisualizeFullBody ()
+    {
+        GameObject.FindGameObjectWithTag("PlayerLegs").GetComponent<SkinnedMeshRenderer>().enabled = true;
+        GameObject[] upperBody = GameObject.FindGameObjectsWithTag("PlayerUpperBody");
+
+        foreach (GameObject obj  in upperBody)
+        {
+            obj.GetComponent<SkinnedMeshRenderer>().enabled = true;
+        }
+    }
+
+    public void VisualizeUpperBodyOnly ()
+    {
+        GameObject.FindGameObjectWithTag("PlayerLegs").GetComponent<SkinnedMeshRenderer>().enabled = false;
+        GameObject[] upperBody = GameObject.FindGameObjectsWithTag("PlayerUpperBody");
+
+        foreach (GameObject obj  in upperBody)
+        {
+            obj.GetComponent<SkinnedMeshRenderer>().enabled = true;
+        }
+    }
+
+    public void VisualizeFaceOnly ()
+    {
+        GameObject.FindGameObjectWithTag("PlayerLegs").GetComponent<SkinnedMeshRenderer>().enabled = false;
+        GameObject[] upperBody = GameObject.FindGameObjectsWithTag("PlayerUpperBody");
+
+        foreach (GameObject obj  in upperBody)
+        {
+            obj.GetComponent<SkinnedMeshRenderer>().enabled = false;
+        }
+    }
 }
