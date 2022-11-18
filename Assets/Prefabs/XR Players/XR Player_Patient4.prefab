@@ -6815,6 +6815,7 @@ GameObject:
   - component: {fileID: 5750472211544188256}
   - component: {fileID: 5750472211544188257}
   - component: {fileID: 5750472211544188258}
+  - component: {fileID: 1571287461047028857}
   m_Layer: 0
   m_Name: Patient4
   m_TagString: Untagged
@@ -7093,6 +7094,23 @@ MonoBehaviour:
       onRightFootstep:
         m_PersistentCalls:
           m_Calls: []
+--- !u!114 &1571287461047028857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5750472211544188287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8188eba42291d8499037e554dd51075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upperArmBoneLeft: {fileID: 5750472210397373110}
+  lowerArmBoneLeft: {fileID: 5750472211713582675}
+  upperArmBoneRight: {fileID: 5750472211670170100}
+  lowerArmBoneRight: {fileID: 5750472210372353178}
+  scalePct: 0.05
 --- !u!1 &5750472211544581567
 GameObject:
   m_ObjectHideFlags: 0

@@ -9715,6 +9715,7 @@ GameObject:
   - component: {fileID: 8116256291051720968}
   - component: {fileID: 2756925131163372402}
   - component: {fileID: 8586118621746935547}
+  - component: {fileID: 1983486946646141964}
   m_Layer: 0
   m_Name: Mannequin
   m_TagString: Untagged
@@ -9989,6 +9990,23 @@ MonoBehaviour:
       onRightFootstep:
         m_PersistentCalls:
           m_Calls: []
+--- !u!114 &1983486946646141964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8928787260155530162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8188eba42291d8499037e554dd51075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upperArmBoneLeft: {fileID: 2271021052406722312}
+  lowerArmBoneLeft: {fileID: 7196452256311072918}
+  upperArmBoneRight: {fileID: 998536903829546808}
+  lowerArmBoneRight: {fileID: 5895043294672101549}
+  scalePct: 0.05
 --- !u!1 &8955474741278831952
 GameObject:
   m_ObjectHideFlags: 0

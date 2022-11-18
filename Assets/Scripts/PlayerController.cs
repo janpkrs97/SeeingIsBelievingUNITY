@@ -38,24 +38,24 @@ public class PlayerController : MonoBehaviour
     public void IncreasePlayerHeight ()
     {
         GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
-        spawnedPlayer.GetComponent<CalibratePlayerSize>().GrowHeight();
+        spawnedPlayer.GetComponentInChildren<CalibratePlayerSize>().GrowHeight();
     }
 
     public void DecreasePlayerHeight ()
     {
         GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
-        spawnedPlayer.GetComponent<CalibratePlayerSize>().ShrinkHeight();
+        spawnedPlayer.GetComponentInChildren<CalibratePlayerSize>().ShrinkHeight();
     }
 
     public void IncreasePlayerArms ()
     {
         GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
-        spawnedPlayer.GetComponent<CalibratePlayerSize>().GrowArms();
+        spawnedPlayer.GetComponentInChildren<CalibratePlayerSize>().GrowArms();
     }
 
     public void DecreasePlayerArms ()
     {
         GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
-        spawnedPlayer.GetComponent<CalibratePlayerSize>().ShrinkArms();
+        spawnedPlayer.GetComponentInChildren<CalibratePlayerSize>().ShrinkArms();
     }
 }
