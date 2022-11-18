@@ -11,12 +11,13 @@ public class PlayerController : MonoBehaviour
     [Header("XR Player GameObjects")]
     public GameObject[] xrPlayers;
     
-    [Header("XR Player Spawn Location")]
-    public Transform spawnLocation;
+    [Header("XR Player Spawn Locations")]
+    public Transform spawnLocationMenu, spawnLocationHospital;
 
     void Awake()
     {
-        Instantiate(xrPlayers[0], spawnLocation.position, spawnLocation.rotation);
+        DontDestroyOnLoad(this.gameObject);
+        Instantiate(xrPlayers[0], spawnLocationMenu.position, spawnLocationMenu.rotation);
     }
 
     public void DestroyPlayers()
@@ -31,8 +32,19 @@ public class PlayerController : MonoBehaviour
 
     public void SpawnAvatar (int id)
     {
-        Instantiate(xrPlayers[id], spawnLocation.position, spawnLocation.rotation);
+        GameObject[] spawnedPlayers = GameObject.FindGameObjectsWithTag("Player");
+        spawnLocationMenu = spawnedPlayers[0].transform;
+        Instantiate(xrPlayers[id], spawnLocationMenu.position, spawnLocationMenu.rotation);
         playerID = id;
+    }
+
+    public void SceneChanged (int id)
+    {
+        // if hospital[0]
+        // else if home[1]
+        // else (reality)[2]
+
+        Instantiate(xrPlayers[playerID], spawnLocationHospital.position, spawnLocationHospital.rotation);
     }
 
     public void IncreasePlayerHeight ()

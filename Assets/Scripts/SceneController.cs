@@ -7,9 +7,17 @@ public class SceneController : MonoBehaviour
 {
     public int sceneID;
 
+    public PlayerController playerController;
+
+    public void Awake ()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     public void ChangeScene (int id) 
     {
         sceneID = id;
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("Hospital");
+        playerController.SceneChanged(id);
     }
 }
