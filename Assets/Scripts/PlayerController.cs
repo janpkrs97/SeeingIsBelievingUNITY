@@ -34,4 +34,28 @@ public class PlayerController : MonoBehaviour
         Instantiate(xrPlayers[id], spawnLocation.position, spawnLocation.rotation);
         playerID = id;
     }
+
+    public void IncreasePlayerHeight ()
+    {
+        GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
+        spawnedPlayer.GetComponent<CalibratePlayerSize>().GrowHeight();
+    }
+
+    public void DecreasePlayerHeight ()
+    {
+        GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
+        spawnedPlayer.GetComponent<CalibratePlayerSize>().ShrinkHeight();
+    }
+
+    public void IncreasePlayerArms ()
+    {
+        GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
+        spawnedPlayer.GetComponent<CalibratePlayerSize>().GrowArms();
+    }
+
+    public void DecreasePlayerArms ()
+    {
+        GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
+        spawnedPlayer.GetComponent<CalibratePlayerSize>().ShrinkArms();
+    }
 }
