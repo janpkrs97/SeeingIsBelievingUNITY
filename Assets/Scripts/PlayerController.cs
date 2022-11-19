@@ -10,13 +10,13 @@ public class PlayerController : MonoBehaviour
 
     [Header("XR Player GameObjects")]
     public GameObject[] xrPlayers;
+    public GameObject newSpawnedPlayer;
     
     [Header("XR Player Spawn Locations")]
     public Transform spawnLocationMenu, spawnLocationHospital;
 
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
         Instantiate(xrPlayers[0], spawnLocationMenu.position, spawnLocationMenu.rotation);
     }
 
@@ -34,17 +34,9 @@ public class PlayerController : MonoBehaviour
     {
         GameObject[] spawnedPlayers = GameObject.FindGameObjectsWithTag("Player");
         spawnLocationMenu = spawnedPlayers[0].transform;
-        Instantiate(xrPlayers[id], spawnLocationMenu.position, spawnLocationMenu.rotation);
+        newSpawnedPlayer = Instantiate(xrPlayers[id], spawnLocationMenu.position, spawnLocationMenu.rotation);
+        GameObject.DontDestroyOnLoad(newSpawnedPlayer);
         playerID = id;
-    }
-
-    public void SceneChanged (int id)
-    {
-        // if hospital[0]
-        // else if home[1]
-        // else (reality)[2]
-
-        Instantiate(xrPlayers[playerID], spawnLocationHospital.position, spawnLocationHospital.rotation);
     }
 
     public void IncreasePlayerHeight ()
@@ -101,6 +93,27 @@ public class PlayerController : MonoBehaviour
         foreach (GameObject obj  in upperBody)
         {
             obj.GetComponent<SkinnedMeshRenderer>().enabled = false;
+        }
+    }
+
+    public void SceneChanged (int id)
+    {
+        if (id == 0)
+        {
+
+        }
+        else if (id == 1)
+        {
+            newSpawnedPlayer.transform.position = spawnLocationHospital.position;
+            newSpawnedPlayer.transform.rotation = spawnLocationHospital.rotation;
+        }
+        else if (id == 2)
+        {
+
+        }
+        else
+        {
+
         }
     }
 }

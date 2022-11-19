@@ -1329,6 +1329,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1885389679}
+        m_TargetAssemblyTypeName: PatientShowcaseController, Assembly-CSharp
+        m_MethodName: PatientSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 505535903}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: SpawnAvatar
@@ -1349,6 +1361,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1885389679}
+        m_TargetAssemblyTypeName: PatientShowcaseController, Assembly-CSharp
+        m_MethodName: PatientSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -2228,6 +2252,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1885389679}
+        m_TargetAssemblyTypeName: PatientShowcaseController, Assembly-CSharp
+        m_MethodName: PatientSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 505535903}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: SpawnAvatar
@@ -2248,6 +2284,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1885389679}
+        m_TargetAssemblyTypeName: PatientShowcaseController, Assembly-CSharp
+        m_MethodName: PatientSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -3221,6 +3269,7 @@ MonoBehaviour:
   - {fileID: 5155536254930734166, guid: 45a339ac92049fa4790f008dbfdc42c8, type: 3}
   - {fileID: 3870766084444187966, guid: f35e79f81015aa944b719b8d987e1cbe, type: 3}
   - {fileID: 2086608647256885594, guid: 69a9fa7cdff9f974b97bd68682b7d756, type: 3}
+  newSpawnedPlayer: {fileID: 0}
   spawnLocationMenu: {fileID: 357326454}
   spawnLocationHospital: {fileID: 458272355}
 --- !u!4 &505535904
@@ -4819,6 +4868,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1885389679}
+        m_TargetAssemblyTypeName: PatientShowcaseController, Assembly-CSharp
+        m_MethodName: PatientSelected
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6704,6 +6765,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1885389679}
+        m_TargetAssemblyTypeName: PatientShowcaseController, Assembly-CSharp
+        m_MethodName: PatientSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 505535903}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: SpawnAvatar
@@ -6724,6 +6797,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1885389679}
+        m_TargetAssemblyTypeName: PatientShowcaseController, Assembly-CSharp
+        m_MethodName: PatientSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -7803,6 +7888,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1713045194}
+  - component: {fileID: 1713045195}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -7828,6 +7914,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1713045195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713045193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fbd91211d75c44b8f7a16b027c0f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1713259394
 GameObject:
   m_ObjectHideFlags: 0
@@ -8058,6 +8156,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1885389679}
+        m_TargetAssemblyTypeName: PatientShowcaseController, Assembly-CSharp
+        m_MethodName: PatientSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 505535903}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: SpawnAvatar
@@ -8078,6 +8188,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1885389679}
+        m_TargetAssemblyTypeName: PatientShowcaseController, Assembly-CSharp
+        m_MethodName: PatientSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -8844,6 +8966,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1885389678}
+  - component: {fileID: 1885389679}
   m_Layer: 0
   m_Name: PatientShowcase
   m_TagString: Untagged
@@ -8874,6 +8997,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1885389679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885389677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de7ec096c2612314d9669497108f8e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showcasePlatforms:
+  - {fileID: 388312765}
+  - {fileID: 2055757000}
+  - {fileID: 4205024581266776943}
+  - {fileID: 1087582110}
+  defaultMat: {fileID: 2100000, guid: d9e4e5d3ebe445c499799965b7aa2891, type: 2}
+  selectedMat: {fileID: 2100000, guid: 3efb538ad9eb4274aab5a6b07148af78, type: 2}
 --- !u!1 &1898317812
 GameObject:
   m_ObjectHideFlags: 0
@@ -8966,7 +9108,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

@@ -6,13 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     public int sceneID;
-
     public PlayerController playerController;
-
-    public void Awake ()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
 
     public void ChangeScene (int id) 
     {
