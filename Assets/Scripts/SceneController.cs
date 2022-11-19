@@ -10,8 +10,24 @@ public class SceneController : MonoBehaviour
 
     public void ChangeScene (int id) 
     {
+        if (id == 0)
+        {
+            SceneManager.LoadScene("Menu");
+        }
+        else if (id == 1)
+        {
+            SceneManager.LoadScene("Hospital");
+        }
+        else if (id == 2)
+        {
+            SceneManager.LoadScene("Tutorial");
+        }
+        else
+        {
+            SceneManager.LoadScene("Menu");
+        }
+        
         sceneID = id;
-        SceneManager.LoadScene("Hospital");
         playerController.SceneChanged(id);
     }
 }

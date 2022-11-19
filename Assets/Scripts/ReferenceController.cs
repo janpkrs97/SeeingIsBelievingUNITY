@@ -34,4 +34,9 @@ public class ReferenceController : MonoBehaviour
             playerController.VisualizeFullBody();
         }
     }
+
+    public void ExitToMenu ()
+    {
+        sceneController.ChangeScene(0);
+    }
 }
