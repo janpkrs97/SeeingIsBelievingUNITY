@@ -16,7 +16,7 @@ public class SceneController : MonoBehaviour
         }
         else if (id == 1)
         {
-            SceneManager.LoadScene("Hospital");
+            SceneManager.LoadScene("HospitalNEW");
         }
         else if (id == 2)
         {

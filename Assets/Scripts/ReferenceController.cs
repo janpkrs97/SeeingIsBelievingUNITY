@@ -37,6 +37,7 @@ public class ReferenceController : MonoBehaviour
 
     public void ExitToMenu ()
     {
+        playerController.DestroyPlayers();
         sceneController.ChangeScene(0);
     }
 }
