@@ -800,8 +800,6 @@ MonoBehaviour:
   neo2R: {fileID: 1378001143042502, guid: 9a799acc17167fa4cacc2e9a29cc4ba1, type: 3}
   neo3L: {fileID: 414784878285137478, guid: ba669b48860575744a98e41d08391cd3, type: 3}
   neo3R: {fileID: 8571202708993718213, guid: 50249800e4104084fb51ed64f7e56ffd, type: 3}
-  PICO_4L: {fileID: 3222469904833361626, guid: 853840c5196b2486a97e1785f3a68575, type: 3}
-  PICO_4R: {fileID: 1704171135803129665, guid: 3a5f20f82a5224d7d969e99da633fc69, type: 3}
   mobileMaterial: {fileID: 2100000, guid: ea5d1bb890cef78439598b7062576fa3, type: 2}
   standardMaterial: {fileID: 2100000, guid: 4c2b2924173d4814f886ea72b5c47f69, type: 2}
   controllerSimulation: 0
@@ -2223,8 +2221,8 @@ GameObject:
   - component: {fileID: 2518485454761129179}
   - component: {fileID: 2518485454761129183}
   - component: {fileID: 2518485454761129182}
-  - component: {fileID: 2518485454761129181}
-  - component: {fileID: 2518485454761129180}
+  - component: {fileID: 8249394260078759690}
+  - component: {fileID: 3700688226352045131}
   m_Layer: 0
   m_Name: FPS
   m_TagString: Untagged
@@ -2294,7 +2292,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: fps
---- !u!223 &2518485454761129181
+--- !u!223 &8249394260078759690
 Canvas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2304,7 +2302,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 6911813478093703883}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2315,7 +2313,7 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &2518485454761129180
+--- !u!114 &3700688226352045131
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2324,7 +2322,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2518485454761129178}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0686a02cb705eb4eb372aac02223c3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 154e85fc65001864c864dd1e88f2d5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2540820176458894565
@@ -3058,8 +3056,6 @@ MonoBehaviour:
   neo2R: {fileID: 1378001143042502, guid: 9a799acc17167fa4cacc2e9a29cc4ba1, type: 3}
   neo3L: {fileID: 414784878285137478, guid: ba669b48860575744a98e41d08391cd3, type: 3}
   neo3R: {fileID: 8571202708993718213, guid: 50249800e4104084fb51ed64f7e56ffd, type: 3}
-  PICO_4L: {fileID: 3222469904833361626, guid: 853840c5196b2486a97e1785f3a68575, type: 3}
-  PICO_4R: {fileID: 1704171135803129665, guid: 3a5f20f82a5224d7d969e99da633fc69, type: 3}
   mobileMaterial: {fileID: 2100000, guid: ea5d1bb890cef78439598b7062576fa3, type: 2}
   standardMaterial: {fileID: 2100000, guid: 4c2b2924173d4814f886ea72b5c47f69, type: 2}
   controllerSimulation: 0
@@ -5163,7 +5159,7 @@ GameObject:
   - component: {fileID: 4559525247445964821}
   - component: {fileID: 690345173749420326}
   - component: {fileID: 690345173749420323}
-  - component: {fileID: 2518485454679880436}
+  - component: {fileID: 9091814020867018259}
   m_Layer: 2
   m_Name: XR Origin
   m_TagString: Untagged
@@ -5420,7 +5416,7 @@ MonoBehaviour:
   m_LocomotionProvider: {fileID: 690345173749420327}
   m_MinHeight: 0
   m_MaxHeight: Infinity
---- !u!114 &2518485454679880436
+--- !u!114 &9091814020867018259
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5429,17 +5425,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5205271865875239825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd9f82377aeb9704193bd866d119aaa5, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f359d08a9bf58d4996f913a3684fe8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showFps: 0
+  showFPS: 0
   useDefaultFps: 1
   customFps: 0
   screenFade: 0
   eyeTracking: 0
+  supportEyeTracking: 0
   foveationLevel: -1
+  systemDebugFFRLevel: -1
+  systemFFRLevel: -1
   appCheckResult: 100
-  useRecommendedAntiAliasingLevel: 1
 --- !u!1 &5326651773125235510
 GameObject:
   m_ObjectHideFlags: 0

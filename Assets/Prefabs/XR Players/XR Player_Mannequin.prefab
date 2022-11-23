@@ -3019,7 +3019,7 @@ GameObject:
   - component: {fileID: 7682507947682857328}
   - component: {fileID: 6651791427129624643}
   - component: {fileID: 6651791427129624646}
-  - component: {fileID: 8586118621898419089}
+  - component: {fileID: 4058375194853083360}
   m_Layer: 2
   m_Name: XR Origin
   m_TagString: Untagged
@@ -3276,7 +3276,7 @@ MonoBehaviour:
   m_LocomotionProvider: {fileID: 6651791427129624642}
   m_MinHeight: 0
   m_MaxHeight: Infinity
---- !u!114 &8586118621898419089
+--- !u!114 &4058375194853083360
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3285,17 +3285,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2154875006057024244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd9f82377aeb9704193bd866d119aaa5, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f359d08a9bf58d4996f913a3684fe8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showFps: 0
+  showFPS: 0
   useDefaultFps: 1
   customFps: 0
   screenFade: 0
   eyeTracking: 0
+  supportEyeTracking: 0
   foveationLevel: -1
+  systemDebugFFRLevel: -1
+  systemFFRLevel: -1
   appCheckResult: 100
-  useRecommendedAntiAliasingLevel: 1
 --- !u!1 &2266879301608205820
 GameObject:
   m_ObjectHideFlags: 0
@@ -8788,8 +8790,8 @@ GameObject:
   - component: {fileID: 8586118621950373310}
   - component: {fileID: 8586118621950373306}
   - component: {fileID: 8586118621950373307}
-  - component: {fileID: 8586118621950373304}
-  - component: {fileID: 8586118621950373305}
+  - component: {fileID: 4078224817377409379}
+  - component: {fileID: 8748105844113611835}
   m_Layer: 0
   m_Name: FPS
   m_TagString: Untagged
@@ -8859,7 +8861,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: fps
---- !u!223 &8586118621950373304
+--- !u!223 &4078224817377409379
 Canvas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8869,7 +8871,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 734299995665716142}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -8880,7 +8882,7 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &8586118621950373305
+--- !u!114 &8748105844113611835
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8889,7 +8891,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8586118621950373311}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0686a02cb705eb4eb372aac02223c3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 154e85fc65001864c864dd1e88f2d5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8586118621954721842

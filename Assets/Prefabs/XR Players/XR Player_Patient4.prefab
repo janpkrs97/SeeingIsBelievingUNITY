@@ -1902,7 +1902,7 @@ GameObject:
   - component: {fileID: 7223645592809577753}
   - component: {fileID: 5975610598463329322}
   - component: {fileID: 5975610598463329327}
-  - component: {fileID: 8757898494555240440}
+  - component: {fileID: 6112757939049524267}
   m_Layer: 2
   m_Name: XR Origin
   m_TagString: Untagged
@@ -2159,7 +2159,7 @@ MonoBehaviour:
   m_LocomotionProvider: {fileID: 5975610598463329323}
   m_MinHeight: 0
   m_MaxHeight: Infinity
---- !u!114 &8757898494555240440
+--- !u!114 &6112757939049524267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2168,17 +2168,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1388775837253113501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd9f82377aeb9704193bd866d119aaa5, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f359d08a9bf58d4996f913a3684fe8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showFps: 0
+  showFPS: 0
   useDefaultFps: 1
   customFps: 0
   screenFade: 0
   eyeTracking: 0
+  supportEyeTracking: 0
   foveationLevel: -1
+  systemDebugFFRLevel: -1
+  systemFFRLevel: -1
   appCheckResult: 100
-  useRecommendedAntiAliasingLevel: 1
 --- !u!1 &1567075754008863717
 GameObject:
   m_ObjectHideFlags: 0
@@ -9350,8 +9352,6 @@ MonoBehaviour:
   neo2R: {fileID: 1378001143042502, guid: 9a799acc17167fa4cacc2e9a29cc4ba1, type: 3}
   neo3L: {fileID: 414784878285137478, guid: ba669b48860575744a98e41d08391cd3, type: 3}
   neo3R: {fileID: 8571202708993718213, guid: 50249800e4104084fb51ed64f7e56ffd, type: 3}
-  PICO_4L: {fileID: 3222469904833361626, guid: 853840c5196b2486a97e1785f3a68575, type: 3}
-  PICO_4R: {fileID: 1704171135803129665, guid: 3a5f20f82a5224d7d969e99da633fc69, type: 3}
   mobileMaterial: {fileID: 2100000, guid: ea5d1bb890cef78439598b7062576fa3, type: 2}
   standardMaterial: {fileID: 2100000, guid: 4c2b2924173d4814f886ea72b5c47f69, type: 2}
   controllerSimulation: 0
@@ -9856,8 +9856,6 @@ MonoBehaviour:
   neo2R: {fileID: 1378001143042502, guid: 9a799acc17167fa4cacc2e9a29cc4ba1, type: 3}
   neo3L: {fileID: 414784878285137478, guid: ba669b48860575744a98e41d08391cd3, type: 3}
   neo3R: {fileID: 8571202708993718213, guid: 50249800e4104084fb51ed64f7e56ffd, type: 3}
-  PICO_4L: {fileID: 3222469904833361626, guid: 853840c5196b2486a97e1785f3a68575, type: 3}
-  PICO_4R: {fileID: 1704171135803129665, guid: 3a5f20f82a5224d7d969e99da633fc69, type: 3}
   mobileMaterial: {fileID: 2100000, guid: ea5d1bb890cef78439598b7062576fa3, type: 2}
   standardMaterial: {fileID: 2100000, guid: 4c2b2924173d4814f886ea72b5c47f69, type: 2}
   controllerSimulation: 0
@@ -10478,7 +10476,7 @@ GameObject:
   - component: {fileID: 8757898494637535699}
   - component: {fileID: 8757898494637535698}
   - component: {fileID: 8757898494637535697}
-  - component: {fileID: 8757898494637535696}
+  - component: {fileID: 2106709861544140917}
   m_Layer: 0
   m_Name: FPS
   m_TagString: Untagged
@@ -10558,7 +10556,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 329478374802214855}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -10569,7 +10567,7 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &8757898494637535696
+--- !u!114 &2106709861544140917
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10578,7 +10576,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8757898494637535702}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0686a02cb705eb4eb372aac02223c3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 154e85fc65001864c864dd1e88f2d5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8844219933046179944

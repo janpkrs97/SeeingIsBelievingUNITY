@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 8145427651836066357}
   - component: {fileID: 5177017523573977862}
   - component: {fileID: 5177017523573977859}
-  - component: {fileID: 7836151649978192084}
+  - component: {fileID: 1002241014025431777}
   m_Layer: 2
   m_Name: XR Origin
   m_TagString: Untagged
@@ -484,7 +484,7 @@ MonoBehaviour:
   m_LocomotionProvider: {fileID: 5177017523573977863}
   m_MinHeight: 0
   m_MaxHeight: Infinity
---- !u!114 &7836151649978192084
+--- !u!114 &1002241014025431777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -493,17 +493,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 463932797890867633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd9f82377aeb9704193bd866d119aaa5, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f359d08a9bf58d4996f913a3684fe8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showFps: 0
+  showFPS: 0
   useDefaultFps: 1
   customFps: 0
   screenFade: 0
   eyeTracking: 0
+  supportEyeTracking: 0
   foveationLevel: -1
+  systemDebugFFRLevel: -1
+  systemFFRLevel: -1
   appCheckResult: 100
-  useRecommendedAntiAliasingLevel: 1
 --- !u!1 &630825582783578678
 GameObject:
   m_ObjectHideFlags: 0
@@ -7495,8 +7497,6 @@ MonoBehaviour:
   neo2R: {fileID: 1378001143042502, guid: 9a799acc17167fa4cacc2e9a29cc4ba1, type: 3}
   neo3L: {fileID: 414784878285137478, guid: ba669b48860575744a98e41d08391cd3, type: 3}
   neo3R: {fileID: 8571202708993718213, guid: 50249800e4104084fb51ed64f7e56ffd, type: 3}
-  PICO_4L: {fileID: 3222469904833361626, guid: 853840c5196b2486a97e1785f3a68575, type: 3}
-  PICO_4R: {fileID: 1704171135803129665, guid: 3a5f20f82a5224d7d969e99da633fc69, type: 3}
   mobileMaterial: {fileID: 2100000, guid: ea5d1bb890cef78439598b7062576fa3, type: 2}
   standardMaterial: {fileID: 2100000, guid: 4c2b2924173d4814f886ea72b5c47f69, type: 2}
   controllerSimulation: 0
@@ -8999,8 +8999,6 @@ MonoBehaviour:
   neo2R: {fileID: 1378001143042502, guid: 9a799acc17167fa4cacc2e9a29cc4ba1, type: 3}
   neo3L: {fileID: 414784878285137478, guid: ba669b48860575744a98e41d08391cd3, type: 3}
   neo3R: {fileID: 8571202708993718213, guid: 50249800e4104084fb51ed64f7e56ffd, type: 3}
-  PICO_4L: {fileID: 3222469904833361626, guid: 853840c5196b2486a97e1785f3a68575, type: 3}
-  PICO_4R: {fileID: 1704171135803129665, guid: 3a5f20f82a5224d7d969e99da633fc69, type: 3}
   mobileMaterial: {fileID: 2100000, guid: ea5d1bb890cef78439598b7062576fa3, type: 2}
   standardMaterial: {fileID: 2100000, guid: 4c2b2924173d4814f886ea72b5c47f69, type: 2}
   controllerSimulation: 0
@@ -9292,8 +9290,8 @@ GameObject:
   - component: {fileID: 7836151649895864059}
   - component: {fileID: 7836151649895864063}
   - component: {fileID: 7836151649895864062}
-  - component: {fileID: 7836151649895864061}
-  - component: {fileID: 7836151649895864060}
+  - component: {fileID: 5151538936314086994}
+  - component: {fileID: 7180849185202666398}
   m_Layer: 0
   m_Name: FPS
   m_TagString: Untagged
@@ -9363,7 +9361,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: fps
---- !u!223 &7836151649895864061
+--- !u!223 &5151538936314086994
 Canvas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9373,7 +9371,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1272089847433816299}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -9384,7 +9382,7 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &7836151649895864060
+--- !u!114 &7180849185202666398
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9393,7 +9391,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7836151649895864058}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0686a02cb705eb4eb372aac02223c3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 154e85fc65001864c864dd1e88f2d5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7858254924392328901
