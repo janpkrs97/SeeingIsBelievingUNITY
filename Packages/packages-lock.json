@@ -222,7 +222,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.picoxr": {
-      "version": "file:C:/Users/ASUS/Documents/Unity Packages/PicoXR_Platform_SDK-1.2.3_B55-20221123T070315Z-001/PicoXR_Platform_SDK-1.2.3_B55",
+      "version": "file:C:/Users/ASUS/Documents/Unity Packages/PICO Unity Integration SDK v211",
       "depth": 0,
       "source": "local",
       "dependencies": {
