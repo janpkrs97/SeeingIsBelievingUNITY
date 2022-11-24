@@ -15,9 +15,12 @@ public class PlayerController : MonoBehaviour
     [Header("XR Player Spawn Locations")]
     public Transform spawnLocationMenu, spawnLocationHospital;
 
+    public GameObject menuTeleportArea;
+
     void Awake()
     {
         Instantiate(xrPlayers[0], spawnLocationMenu.position, spawnLocationMenu.rotation);
+        Instantiate(menuTeleportArea, new Vector3 (0f, 0f, -0.5f), Quaternion.identity);
     }
 
     public void DestroyPlayers()
