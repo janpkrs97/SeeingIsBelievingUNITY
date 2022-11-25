@@ -99,6 +99,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ScreenFadeOutIn ()
+    {
+        GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
+        spawnedPlayer.GetComponentInChildren<SyncVRScreenFade>().FadeOut();
+        spawnedPlayer.GetComponentInChildren<SyncVRScreenFade>().FadeIn(); 
+    }
+
+    public void ScreenFadeIn ()
+    {
+        GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
+        spawnedPlayer.GetComponentInChildren<SyncVRScreenFade>().FadeIn();
+    }
+
+    public void ScreenFadeOut ()
+    {
+        GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
+        spawnedPlayer.GetComponentInChildren<SyncVRScreenFade>().FadeOut();
+    }
+
     public void SceneChanged (int id)
     {
         if (id == 0)
