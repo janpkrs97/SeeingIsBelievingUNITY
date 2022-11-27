@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public GameObject newSpawnedPlayer;
     
     [Header("XR Player Spawn Locations")]
-    public Transform spawnLocationMenu, spawnLocationHospital;
+    public Transform spawnLocationMenu, spawnLocationHospital, spawnLocationLivingroom;
 
     public GameObject menuTeleportArea;
 
@@ -122,7 +122,8 @@ public class PlayerController : MonoBehaviour
     {
         if (id == 0)
         {
-
+            newSpawnedPlayer.transform.position = spawnLocationMenu.position;
+            newSpawnedPlayer.transform.rotation = spawnLocationMenu.rotation;
         }
         else if (id == 1)
         {
@@ -131,11 +132,13 @@ public class PlayerController : MonoBehaviour
         }
         else if (id == 2)
         {
-
+            newSpawnedPlayer.transform.position = spawnLocationLivingroom.position;
+            newSpawnedPlayer.transform.rotation = spawnLocationLivingroom.rotation;
         }
         else
         {
-
+            newSpawnedPlayer.transform.position = spawnLocationMenu.position;
+            newSpawnedPlayer.transform.rotation = spawnLocationMenu.rotation;
         }
     }
 }

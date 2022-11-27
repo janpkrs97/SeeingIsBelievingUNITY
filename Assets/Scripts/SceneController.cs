@@ -20,7 +20,7 @@ public class SceneController : MonoBehaviour
         }
         else if (id == 2)
         {
-            SceneManager.LoadScene("Tutorial");
+            SceneManager.LoadScene("Livingroom");
         }
         else
         {
