@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PlayerUpperBody
   - PlayerLegs
+  - Body
+  - MannequinBody
   layers:
   - Default
   - TransparentFX

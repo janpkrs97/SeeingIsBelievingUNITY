@@ -99,6 +99,31 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void PatientPlayerSurgeryStageChange (int id)
+    {
+        if (GameObject.FindGameObjectWithTag("Player").name.Contains("Patient1"))
+        {
+            Debug.Log("Patient1 player found");
+            GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1[id];
+        }
+        else if (GameObject.FindGameObjectWithTag("Player").name == "XR Player_Patient2")
+        {
+            Debug.Log("Patient2 player found but no materials setup");
+        }
+        else if (GameObject.FindGameObjectWithTag("Player").name == "XR Player_Patient3")
+        {
+            Debug.Log("Patient3 player found but no materials setup");
+        }
+        else if (GameObject.FindGameObjectWithTag("Player").name == "XR Player_Patient4")
+        {
+            Debug.Log("Patient4 player found but no materials setup");
+        }
+        else
+        {
+            Debug.Log("PNo patient player found and no materials setup");
+        }
+    }
+
     public void ScreenFadeOutIn ()
     {
         GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
