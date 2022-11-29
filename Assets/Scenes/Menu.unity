@@ -3352,6 +3352,12 @@ MonoBehaviour:
   spawnLocationHospital: {fileID: 458272355}
   spawnLocationLivingroom: {fileID: 811869771}
   menuTeleportArea: {fileID: 6657839000663778373, guid: fe3785e88e1cceb4d95ed5bd7412c22a, type: 3}
+  playerMaterials1:
+  - {fileID: 2100000, guid: d81a08e36282aa049bdf06afde3a9696, type: 2}
+  - {fileID: 2100000, guid: 14fa5b2e646737943a558748ee6e7623, type: 2}
+  - {fileID: 2100000, guid: 57a48d5461ef51a4ea45a4951a4eeaab, type: 2}
+  - {fileID: 2100000, guid: 034fbf7858174ab45be0b44bbd022216, type: 2}
+  - {fileID: 2100000, guid: 2f5086b77c2f80d478dd4dd163c1acb5, type: 2}
 --- !u!4 &505535904
 Transform:
   m_ObjectHideFlags: 0

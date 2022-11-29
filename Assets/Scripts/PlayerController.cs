@@ -11,11 +11,11 @@ public class PlayerController : MonoBehaviour
     [Header("XR Player GameObjects")]
     public GameObject[] xrPlayers;
     public GameObject newSpawnedPlayer;
-    
-    [Header("XR Player Spawn Locations")]
     public Transform spawnLocationMenu, spawnLocationHospital, spawnLocationLivingroom;
-
     public GameObject menuTeleportArea;
+
+    [Header("XRPlayer1 Body Materials")]
+    public Material[] playerMaterials1;
 
     void Awake()
     {
