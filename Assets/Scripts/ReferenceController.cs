@@ -7,12 +7,14 @@ public class ReferenceController : MonoBehaviour
     private GameObject managersParent;
     public PlayerController playerController;
     public SceneController sceneController;
+    //public MannequinController mannequinController;
 
     void Awake()
     {
         managersParent = GameObject.Find("Managers");
         playerController = managersParent.GetComponentInChildren<PlayerController>();
         sceneController = managersParent.GetComponentInChildren<SceneController>();
+        //mannequinController = GameObject.Find("MannequinScenario").GetComponent<MannequinController>();
     }
 
     public void ChangePlayerVisualization (int id)
@@ -33,6 +35,11 @@ public class ReferenceController : MonoBehaviour
         {
             playerController.VisualizeFullBody();
         }
+    }
+
+    public void ChangePlayerSurgeryStage (int id)
+    {
+        playerController.PatientPlayerSurgeryStageChange(id);
     }
 
     public void ExitToMenu ()
