@@ -4384,7 +4384,7 @@ GameObject:
   - component: {fileID: 2555532596767401110}
   - component: {fileID: 1000891581819593041}
   - component: {fileID: 4845615372975550274}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Ray Interactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5280,7 +5280,7 @@ GameObject:
   - component: {fileID: 89548915015343108}
   - component: {fileID: 3434793579229960643}
   - component: {fileID: 7022838717368981456}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Ray Interactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

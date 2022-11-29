@@ -26225,7 +26225,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
   sceneController: {fileID: 0}
-  mannequinController: {fileID: 0}
 --- !u!1 &1521174783
 GameObject:
   m_ObjectHideFlags: 0
@@ -30046,8 +30045,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2c912176c238c46b016b41d5389ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standingPatientMannequin: {fileID: 6876453505482070450}
-  lyingPatientMannequin: {fileID: 116720195113122934}
   mannequinMaterials:
   - {fileID: 2100000, guid: d81a08e36282aa049bdf06afde3a9696, type: 2}
   - {fileID: 2100000, guid: 14fa5b2e646737943a558748ee6e7623, type: 2}
@@ -41463,7 +41460,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 458551
+    m_Bits: 51
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: f844e2c5e30f6b5489f49e69dd60684a, type: 2}
   m_TargetDisplay: 0
