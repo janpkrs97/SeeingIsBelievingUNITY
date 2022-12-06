@@ -12,15 +12,11 @@ public class SceneController : MonoBehaviour
     {
         if (id == 0)
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("MenuOLD");
         }
         else if (id == 1)
         {
-            SceneManager.LoadScene("HospitalNEW");
-        }
-        else if (id == 2)
-        {
-            SceneManager.LoadScene("Livingroom");
+            SceneManager.LoadScene("HospitalOLD");
         }
         else
         {

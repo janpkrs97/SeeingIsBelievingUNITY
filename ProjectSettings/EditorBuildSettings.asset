@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Livingroom.unity
     guid: 1c6b1160052f0164c9c98636e7391391
+  - enabled: 1
+    path: Assets/Scenes/HospitalOLD.unity
+    guid: f8b6af6fcc7caa24eb51360cb73ab933
   m_configObjects:
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 5416c20aa6c0a344990197d8c0eae273, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: da11296ade4424b4999778f2e3f796be, type: 2}

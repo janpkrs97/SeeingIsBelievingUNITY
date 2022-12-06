@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        Instantiate(xrPlayers[0], spawnLocationMenu.position, spawnLocationMenu.rotation);
+        GameObject mannequinPlayer = Instantiate(xrPlayers[0], spawnLocationMenu.position, spawnLocationMenu.rotation);
+        GameObject.DontDestroyOnLoad(mannequinPlayer);
         Instantiate(menuTeleportArea, new Vector3 (0f, 0f, -0.5f), Quaternion.identity);
     }
 
