@@ -12,19 +12,27 @@ public class SceneController : MonoBehaviour
     {
         if (id == 0)
         {
+            playerController.ScreenFadeOut();
             SceneManager.LoadScene("Menu");
+            playerController.ScreenFadeIn();
         }
         else if (id == 1)
         {
+            playerController.ScreenFadeOut();
             SceneManager.LoadScene("HospitalNEW");
+            playerController.ScreenFadeIn();
         }
         else if (id == 2)
         {
+            playerController.ScreenFadeOut();
             SceneManager.LoadScene("Livingroom");
+            playerController.ScreenFadeIn();
         }
         else
         {
+            playerController.ScreenFadeOut();
             SceneManager.LoadScene("Menu");
+            playerController.ScreenFadeIn();
         }
         
         sceneID = id;
