@@ -8,6 +8,7 @@ TagManager:
   - PlayerLegs
   - Body
   - MannequinBody
+  - TeleportArea
   - TeleportInteractor
   layers:
   - Default

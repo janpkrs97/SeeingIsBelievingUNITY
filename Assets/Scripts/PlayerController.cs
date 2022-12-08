@@ -22,7 +22,9 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         Instantiate(xrPlayers[0], spawnLocationMenu.position, spawnLocationMenu.rotation);
-        Instantiate(menuTeleportArea, new Vector3 (0f, 0f, -0.5f), Quaternion.identity);
+        GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().teleportationProvider = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<TeleportationProvider>();
+        GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().interactionManager = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<XRInteractionManager>();
+        //Instantiate(menuTeleportArea, new Vector3 (0f, 0f, -0.5f), Quaternion.identity);
     }
 
     public void DestroyPlayers()
@@ -40,6 +42,8 @@ public class PlayerController : MonoBehaviour
         GameObject[] spawnedPlayers = GameObject.FindGameObjectsWithTag("Player");
         spawnLocationMenu = spawnedPlayers[0].transform;
         newSpawnedPlayer = Instantiate(xrPlayers[id], spawnLocationMenu.position, spawnLocationMenu.rotation);
+        GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().teleportationProvider = newSpawnedPlayer.GetComponentInChildren<TeleportationProvider>();
+        GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().interactionManager = newSpawnedPlayer.GetComponentInChildren<XRInteractionManager>();
         GameObject.DontDestroyOnLoad(newSpawnedPlayer);
         playerID = id;
     }
