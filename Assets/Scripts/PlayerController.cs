@@ -7,6 +7,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+
     [Header("XR Player Avatar ID")]
     public int playerID;
 
@@ -21,10 +23,25 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        // destroy 2nd manager object when menu scene is reloaded
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (instance != this)
+        {
+            DestroyImmediate(gameObject);
+        }
+    }
+
+    void Start() 
+    {
+        spawnLocationMenu = GetComponentInChildren<Transform>();
         Instantiate(xrPlayers[0], spawnLocationMenu.position, spawnLocationMenu.rotation);
+        playerID = 0;
         GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().teleportationProvider = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<TeleportationProvider>();
         GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().interactionManager = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<XRInteractionManager>();
-        //Instantiate(menuTeleportArea, new Vector3 (0f, 0f, -0.5f), Quaternion.identity);
     }
 
     public void DestroyPlayers()
@@ -42,10 +59,21 @@ public class PlayerController : MonoBehaviour
         GameObject[] spawnedPlayers = GameObject.FindGameObjectsWithTag("Player");
         spawnLocationMenu = spawnedPlayers[0].transform;
         newSpawnedPlayer = Instantiate(xrPlayers[id], spawnLocationMenu.position, spawnLocationMenu.rotation);
+        playerID = id;
         GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().teleportationProvider = newSpawnedPlayer.GetComponentInChildren<TeleportationProvider>();
         GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().interactionManager = newSpawnedPlayer.GetComponentInChildren<XRInteractionManager>();
         GameObject.DontDestroyOnLoad(newSpawnedPlayer);
-        playerID = id;
+    }
+
+    public void SpawnNullAvatar()
+    {
+        //spawnLocationMenu.position = new Vector3 (0f, 0.125f, 0f);
+        //spawnLocationMenu.rotation = Quaternion.Euler (0f, 180f, 0f);
+        //Instantiate(xrPlayers[0]);
+        playerID = 0;
+        //spawnLocationMenu = newSpawnedPlayer.transform;
+        //GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().teleportationProvider = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<TeleportationProvider>();
+        //GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().interactionManager = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<XRInteractionManager>();
     }
 
     public void IncreasePlayerHeight ()
@@ -151,25 +179,33 @@ public class PlayerController : MonoBehaviour
 
     public void SceneChanged (int id)
     {
+        // TODO: fix players not spawning in specific locations
         if (id == 0)
         {
-            newSpawnedPlayer.transform.position = spawnLocationMenu.position;
-            newSpawnedPlayer.transform.rotation = spawnLocationMenu.rotation;
+            Debug.LogError("back at menu.. spawning null avatar!");
+            Instantiate(xrPlayers[0]);
+            playerID = 0;
+            //GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
+            //spawnedPlayer.transform.position = spawnLocationMenu.position;
+            //spawnedPlayer.transform.rotation = spawnLocationMenu.rotation;
         }
         else if (id == 1)
         {
-            newSpawnedPlayer.transform.position = spawnLocationHospital.position;
-            newSpawnedPlayer.transform.rotation = spawnLocationHospital.rotation;
+            //GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
+            //spawnedPlayer.transform.position = spawnLocationHospital.position;
+            //spawnedPlayer.transform.rotation = spawnLocationHospital.rotation;
         }
         else if (id == 2)
         {
-            newSpawnedPlayer.transform.position = spawnLocationLivingroom.position;
-            newSpawnedPlayer.transform.rotation = spawnLocationLivingroom.rotation;
+            //GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
+            //spawnedPlayer.transform.position = spawnLocationLivingroom.position;
+            //spawnedPlayer.transform.rotation = spawnLocationLivingroom.rotation;
         }
         else
         {
-            newSpawnedPlayer.transform.position = spawnLocationMenu.position;
-            newSpawnedPlayer.transform.rotation = spawnLocationMenu.rotation;
+            //GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
+            //spawnedPlayer.transform.position = spawnLocationMenu.position;
+            //spawnedPlayer.transform.rotation = spawnLocationMenu.rotation;
         }
     }
 }

@@ -24,14 +24,12 @@ public class SyncVRManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else if (Instance != this)
         {
             DestroyImmediate(gameObject);
         }
-
-        DontDestroyOnLoad(gameObject);
-
     }
 
     public void Start()

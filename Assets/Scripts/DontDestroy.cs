@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
+    public static DontDestroy instance;
     void Awake ()
     {
-        GameObject.DontDestroyOnLoad(this.gameObject);
+        // destroy 2nd manager object when menu scene is reloaded
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (instance != this)
+        {
+            DestroyImmediate(gameObject);
+        }
     }
 }

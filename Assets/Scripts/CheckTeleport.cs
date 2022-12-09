@@ -9,11 +9,15 @@ public class CheckTeleport : MonoBehaviour
 
     void Awake()
     {
-        playerController = GameObject.Find("Managers").GetComponentInChildren<PlayerController>();
+        playerController = GameObject.FindGameObjectWithTag("Manager").GetComponentInChildren<PlayerController>();
     }
 
     public void Teleporting()
     {
-        playerController.ScreenFadeOutIn();
+        // if-statement for a/b testing patients 3/4 have screen fade, patients 0/1/2 do not -- remove to add screen fade for all players when teleporting
+        if (playerController.playerID >= 2)
+        {
+            playerController.ScreenFadeOutIn();
+        }
     }
 }

@@ -10,6 +10,7 @@ TagManager:
   - MannequinBody
   - TeleportArea
   - TeleportInteractor
+  - Manager
   layers:
   - Default
   - TransparentFX

@@ -11,7 +11,7 @@ public class ReferenceController : MonoBehaviour
 
     void Awake()
     {
-        managersParent = GameObject.Find("Managers");
+        managersParent = GameObject.FindGameObjectWithTag("Manager");
         playerController = managersParent.GetComponentInChildren<PlayerController>();
         sceneController = managersParent.GetComponentInChildren<SceneController>();
         //mannequinController = GameObject.Find("MannequinScenario").GetComponent<MannequinController>();
