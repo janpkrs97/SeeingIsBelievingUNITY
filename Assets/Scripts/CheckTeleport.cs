@@ -9,11 +9,15 @@ public class CheckTeleport : MonoBehaviour
 
     void Awake()
     {
-        playerController = GameObject.Find("Managers").GetComponentInChildren<PlayerController>();
+        playerController = GameObject.FindGameObjectWithTag("Manager").GetComponentInChildren<PlayerController>();
     }
 
     public void Teleporting()
     {
-        playerController.ScreenFadeOutIn();
+        // A/b testing of screen fade (avatars 0,2,4 do not fade, avatars 1,3 have fade on teleport) -- edit depending on test results
+        if (playerController.playerID % 2 != 0)
+        {
+            playerController.ScreenFadeOutIn();
+        }
     }
 }
