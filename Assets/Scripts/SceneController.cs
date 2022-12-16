@@ -10,9 +10,13 @@ public class SceneController : MonoBehaviour
 
     public void ChangeScene (int id) 
     {
+        sceneID = id;
+        playerController.SceneChanged(id);
+
         if (id == 0)
         {
             playerController.ScreenFadeOut();
+            Destroy(GameObject.FindGameObjectWithTag("Manager"));
             SceneManager.LoadScene("Menu");
             playerController.ScreenFadeIn();
         }
@@ -28,14 +32,5 @@ public class SceneController : MonoBehaviour
             SceneManager.LoadScene("Livingroom");
             playerController.ScreenFadeIn();
         }
-        else
-        {
-            playerController.ScreenFadeOut();
-            SceneManager.LoadScene("Menu");
-            playerController.ScreenFadeIn();
-        }
-        
-        sceneID = id;
-        playerController.SceneChanged(id);
     }
 }
