@@ -11,6 +11,7 @@ TagManager:
   - TeleportArea
   - TeleportInteractor
   - Manager
+  - TeleportAnchor
   layers:
   - Default
   - TransparentFX
