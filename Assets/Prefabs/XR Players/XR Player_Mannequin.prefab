@@ -1182,7 +1182,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 2281696399307846454, guid: 94f7925a0585b274fbc5fe6b8f9b1f4e, type: 3}
+  m_ModelPrefab: {fileID: 0}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
@@ -1490,7 +1490,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 2673240740586844490, guid: d792b21ba2f3e6e4ba026384d6d6536f, type: 3}
+  m_ModelPrefab: {fileID: 0}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
@@ -10054,6 +10054,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2673240740586844485, guid: d792b21ba2f3e6e4ba026384d6d6536f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2673240740586844490, guid: d792b21ba2f3e6e4ba026384d6d6536f, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -10119,6 +10123,10 @@ PrefabInstance:
     - target: {fileID: 588274493876933136, guid: 94f7925a0585b274fbc5fe6b8f9b1f4e, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 588274493876933136, guid: 94f7925a0585b274fbc5fe6b8f9b1f4e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2281696399307846454, guid: 94f7925a0585b274fbc5fe6b8f9b1f4e, type: 3}
       propertyPath: m_RootOrder
