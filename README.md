@@ -1,9 +1,7 @@
 # SeeingIsBelievingUNITY
  
 ************************************************************
-Developed by Jan Philipp Kraus
-In Conjunction with SyncVR Medical, Erasmus MC & Medical VR
-A Graduation Project
+Developed by Jan Philipp Kraus in conjunction with SyncVR Medical, Erasmus MC & Medical VR. A graduation project for CMD Game Design.
 ************************************************************
 
 The project's aim is to improve preoperative experiences for forehead flap for nasal reconstruction patients, resulting in better postoperative outcomes.
