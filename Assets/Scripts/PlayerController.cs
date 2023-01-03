@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
         //spawnLocationMenu = GetComponentInChildren<Transform>();
         Instantiate(xrPlayers[0], spawnLocationMenu.position, spawnLocationMenu.rotation);
         playerID = 0;
+        
+        // update teleportation area's interaction manager & teleportation provider
         GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().teleportationProvider = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<TeleportationProvider>();
         GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().interactionManager = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<XRInteractionManager>();
     }
@@ -60,9 +62,23 @@ public class PlayerController : MonoBehaviour
         spawnLocationMenu = spawnedPlayers[0].transform;
         newSpawnedPlayer = Instantiate(xrPlayers[id], spawnLocationMenu.position, spawnLocationMenu.rotation);
         playerID = id;
+
+        // update teleportation area's interaction manager & teleportation provider
         GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().teleportationProvider = newSpawnedPlayer.GetComponentInChildren<TeleportationProvider>();
         GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().interactionManager = newSpawnedPlayer.GetComponentInChildren<XRInteractionManager>();
+
         GameObject.DontDestroyOnLoad(newSpawnedPlayer);
+    }
+
+    public void UpdateTeleportationAnchorReferences()
+    {
+        // update teleportation anchors' interaction managers & teleportation providers
+        GameObject[] tutorialTeleportationAnchors = GameObject.FindGameObjectsWithTag("TeleportAnchor");
+        foreach (GameObject obj in tutorialTeleportationAnchors)
+        {
+            obj.GetComponent<TeleportationAnchor>().teleportationProvider = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<TeleportationProvider>();
+            obj.GetComponent<TeleportationAnchor>().interactionManager = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<XRInteractionManager>();
+        }
     }
 
     public void IncreasePlayerHeight ()

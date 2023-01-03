@@ -14,8 +14,8 @@ public class CheckTeleport : MonoBehaviour
 
     public void Teleporting()
     {
-        // A/b testing of screen fade (avatars 0,2,4 do not fade, avatars 1,3 have fade on teleport) -- edit depending on test results
-        if (playerController.playerID % 2 != 0)
+        // A/b testing of screen fade (avatars 2,4 do not fade, avatars 0,1,3 have fade on teleport) -- edit depending on test results
+        if (playerController.playerID % 2 != 0 || playerController.playerID == 0)
         {
             playerController.ScreenFadeOutIn();
         }
