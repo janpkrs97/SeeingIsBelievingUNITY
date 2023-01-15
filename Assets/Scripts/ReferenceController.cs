@@ -36,6 +36,16 @@ public class ReferenceController : MonoBehaviour
         }
     }
 
+    public void NextPlayerSurgeryStage ()
+    {
+        playerController.NextPatientPlayerSurgeryStage();
+    }
+
+    public void BackPlayerSurgeryStage ()
+    {
+        playerController.BackPatientPlayerSurgeryStage();
+    }
+
     public void ChangePlayerSurgeryStage (int id)
     {
         playerController.PatientPlayerSurgeryStageChange(id);

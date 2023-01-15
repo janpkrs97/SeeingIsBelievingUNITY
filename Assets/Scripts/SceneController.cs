@@ -23,7 +23,7 @@ public class SceneController : MonoBehaviour
         else if (id == 1)
         {
             playerController.ScreenFadeOut();
-            SceneManager.LoadScene("HospitalNEW");
+            SceneManager.LoadScene("RevampedHospital");
             playerController.ScreenFadeIn();
         }
         else if (id == 2)
