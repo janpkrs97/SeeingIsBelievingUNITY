@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 74126116}
   m_Layer: 0
-  m_Name: TEMP_playerstart
+  m_Name: PlayerPositionMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,8 +150,8 @@ Transform:
   m_LocalPosition: {x: 12.5, y: 0.020179033, z: 11.368}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1098901188}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!1 &106477946
 GameObject:
@@ -954,6 +954,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1032376688421674425, guid: 68124812ca4f91b4198234b0a889356a, type: 3}
   m_PrefabInstance: {fileID: 911645887}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1098901187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1098901188}
+  m_Layer: 0
+  m_Name: PlayerPositions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1098901188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098901187}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 74126116}
+  - {fileID: 1601685261}
+  m_Father: {fileID: 1876810384506477400}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1124032033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1561,6 +1593,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
   sceneController: {fileID: 0}
+  playerPositionMain: {fileID: 74126116}
+  playerPositionMirror: {fileID: 1601685261}
+  mirrorSurgeryStageTxt: {fileID: 1876810383261666255}
 --- !u!1001 &1527063524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1627,6 +1662,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1032376688421674425, guid: 68124812ca4f91b4198234b0a889356a, type: 3}
   m_PrefabInstance: {fileID: 1527063524}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1601685260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1601685261}
+  m_Layer: 0
+  m_Name: PlayerPositionMirror
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1601685261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601685260}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 11.25, y: 0.020179033, z: 11.368}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1098901188}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!1 &1604622028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5652,6 +5717,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1520312263}
+        m_TargetAssemblyTypeName: ReferenceController, Assembly-CSharp
+        m_MethodName: ChangePlayerPositionForMirror
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 8148709452935495725}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -7526,7 +7603,7 @@ GameObject:
   - component: {fileID: 1876810383261666254}
   - component: {fileID: 1876810383261666255}
   m_Layer: 5
-  m_Name: HeadingTxt
+  m_Name: SurgeryStageTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7560,7 +7637,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MIRROR SETTINGS
+  m_text: 'SURGERY STAGE: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9454,6 +9531,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1520312263}
+        m_TargetAssemblyTypeName: ReferenceController, Assembly-CSharp
+        m_MethodName: ChangePlayerPositionForMain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1876810384506477401}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -10538,6 +10627,7 @@ Transform:
   m_Children:
   - {fileID: 8609800405688629047}
   - {fileID: 1876810383453487193}
+  - {fileID: 1098901188}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12549,6 +12639,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 034fbf7858174ab45be0b44bbd022216, type: 2}
   - {fileID: 2100000, guid: 2f5086b77c2f80d478dd4dd163c1acb5, type: 2}
   materialID: 0
+  surgeryStageTxt: {fileID: 2308200794797157193}
 --- !u!1 &2308200794139329179
 GameObject:
   m_ObjectHideFlags: 0
@@ -13824,7 +13915,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MANNEQUIN SETTINGS
+  m_text: 'SURGERY STAGE: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13913,7 +14004,7 @@ GameObject:
   - component: {fileID: 2308200794797157194}
   - component: {fileID: 2308200794797157193}
   m_Layer: 5
-  m_Name: HeadingTxt
+  m_Name: SurgeryStageTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25012,7 +25103,7 @@ RectTransform:
   m_Father: {fileID: 8347306957345173096}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5945946, y: 0}
+  m_AnchorMin: {x: 0.5625, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -25187,9 +25278,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8347306958596557280}
   m_Direction: 1
   m_MinValue: 5
-  m_MaxValue: 42
+  m_MaxValue: 85
   m_WholeNumbers: 0
-  m_Value: 20
+  m_Value: 40
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -25219,8 +25310,8 @@ RectTransform:
   m_Father: {fileID: 8347306957279093912}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5945946, y: 0}
-  m_AnchorMax: {x: 0.5945946, y: 1}
+  m_AnchorMin: {x: 0.5625, y: 0}
+  m_AnchorMax: {x: 0.5625, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 48, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -25675,7 +25766,7 @@ Camera:
     height: 1
   near clip plane: 0.05
   far clip plane: 1000
-  field of view: 20
+  field of view: 40
   orthographic: 0
   orthographic size: -1.12
   m_Depth: 0

@@ -5388,7 +5388,6 @@ MonoBehaviour:
   spawnLocationMenu: {fileID: 357326454}
   spawnLocationHospital: {fileID: 458272355}
   spawnLocationLivingroom: {fileID: 811869771}
-  menuTeleportArea: {fileID: 6657839000663778373, guid: fe3785e88e1cceb4d95ed5bd7412c22a, type: 3}
   playerMaterials1:
   - {fileID: 2100000, guid: d81a08e36282aa049bdf06afde3a9696, type: 2}
   - {fileID: 2100000, guid: 14fa5b2e646737943a558748ee6e7623, type: 2}
@@ -12959,7 +12958,7 @@ Transform:
   m_GameObject: {fileID: 1350692728}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.5}
-  m_LocalScale: {x: 1.2, y: 1, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1939478651}
   m_RootOrder: 0

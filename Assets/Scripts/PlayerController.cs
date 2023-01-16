@@ -240,4 +240,13 @@ public class PlayerController : MonoBehaviour
             spawnedPlayer.transform.rotation = spawnLocationMenu.rotation;
         }
     }
+
+    public void ChangePlayerPosition (Transform t)
+    {
+        ScreenFadeOut();
+        GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
+        spawnedPlayer.transform.position = t.position;
+        spawnedPlayer.transform.rotation = t.rotation;
+        ScreenFadeIn();
+    }
 }
