@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 819649380}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 1.3411961, g: 1.2835851, b: 1.3572639, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5545,6 +5545,7 @@ Transform:
   m_Children:
   - {fileID: 7888022603567726016}
   - {fileID: 1500564142}
+  - {fileID: 1744475011}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23007,7 +23008,7 @@ GameObject:
   - component: {fileID: 1200359314}
   - component: {fileID: 1200359313}
   m_Layer: 5
-  m_Name: HeadingTxt
+  m_Name: SurgeryStageTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23030,7 +23031,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 187}
-  m_SizeDelta: {x: 900, y: 100}
+  m_SizeDelta: {x: 905.58, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1200359313
 MonoBehaviour:
@@ -23052,7 +23053,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MANNEQUIN SETTINGS
+  m_text: 'SURGERY STAGE: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -23079,8 +23080,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54
-  m_fontSizeBase: 54
+  m_fontSize: 72
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -24205,7 +24206,7 @@ GameObject:
   - component: {fileID: 1289863481}
   - component: {fileID: 1289863480}
   m_Layer: 5
-  m_Name: HeadingTxt
+  m_Name: SurgeryStageTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24250,7 +24251,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MIRROR SETTINGS
+  m_text: 'SURGERY STAGE: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -24277,8 +24278,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54
-  m_fontSizeBase: 54
+  m_fontSize: 72
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -30672,6 +30673,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
   sceneController: {fileID: 0}
+  playerPositionMain: {fileID: 1537865318}
+  playerPositionMirror: {fileID: 1784618876}
+  mirrorSurgeryStageTxt: {fileID: 1289863480}
 --- !u!1 &1521174783
 GameObject:
   m_ObjectHideFlags: 0
@@ -31200,7 +31204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1537865318}
   m_Layer: 0
-  m_Name: TEMP_playerstart
+  m_Name: PlayerPositionMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31217,8 +31221,8 @@ Transform:
   m_LocalPosition: {x: 0.5, y: 0, z: -0.788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1744475011}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!1001 &1541115866
 PrefabInstance:
@@ -34731,6 +34735,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740441697}
   m_CullTransparentMesh: 1
+--- !u!1 &1744475010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1744475011}
+  m_Layer: 0
+  m_Name: PlayerPositions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1744475011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744475010}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1537865318}
+  - {fileID: 1784618876}
+  m_Father: {fileID: 381129135}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1746426017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35458,6 +35494,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772815326}
   m_CullTransparentMesh: 0
+--- !u!1 &1784618875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1784618876}
+  m_Layer: 0
+  m_Name: PlayerPositionMirror
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1784618876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784618875}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: -1.032, y: 0, z: -0.788}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1744475011}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!1 &1789200810
 GameObject:
   m_ObjectHideFlags: 0
@@ -36041,6 +36107,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1520312263}
+        m_TargetAssemblyTypeName: ReferenceController, Assembly-CSharp
+        m_MethodName: ChangePlayerPositionForMain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 381129134}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -36167,6 +36245,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 034fbf7858174ab45be0b44bbd022216, type: 2}
   - {fileID: 2100000, guid: 2f5086b77c2f80d478dd4dd163c1acb5, type: 2}
   materialID: 0
+  surgeryStageTxt: {fileID: 1200359313}
 --- !u!1 &1819563841
 GameObject:
   m_ObjectHideFlags: 0
@@ -41997,6 +42076,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1520312263}
+        m_TargetAssemblyTypeName: ReferenceController, Assembly-CSharp
+        m_MethodName: ChangePlayerPositionForMirror
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7380988174040496606}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -48216,7 +48307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4659140390817912718
 Transform:
   m_ObjectHideFlags: 0
@@ -50494,7 +50585,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6876453505482070450}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.5, y: -0.001, z: -0.788}
+  m_LocalPosition: {x: -0.236, y: -0.001, z: -0.788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8120268439781662245}
@@ -54242,7 +54333,7 @@ RectTransform:
   m_Father: {fileID: 7628062485794710687}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.7662338, y: 0}
+  m_AnchorMin: {x: 0.5625, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -54354,10 +54445,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 7628062484510303006}
   m_HandleRect: {fileID: 7628062484946551575}
   m_Direction: 1
-  m_MinValue: 3.5
-  m_MaxValue: 42
+  m_MinValue: 5
+  m_MaxValue: 85
   m_WholeNumbers: 0
-  m_Value: 12.5
+  m_Value: 40
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -54485,8 +54576,8 @@ RectTransform:
   m_Father: {fileID: 7628062485726506607}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.7662338, y: 0}
-  m_AnchorMax: {x: 0.7662338, y: 1}
+  m_AnchorMin: {x: 0.5625, y: 0}
+  m_AnchorMax: {x: 0.5625, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 48, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -55342,7 +55433,7 @@ RectTransform:
   m_GameObject: {fileID: 7888022602744285366}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.58, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7888022603568846823}
   m_Father: {fileID: 7888022603567726016}
@@ -55378,7 +55469,7 @@ Camera:
     height: 1
   near clip plane: 0.05
   far clip plane: 1000
-  field of view: 12.5
+  field of view: 40
   orthographic: 0
   orthographic size: -1.12
   m_Depth: 0
@@ -55386,7 +55477,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 115
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: f844e2c5e30f6b5489f49e69dd60684a, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: d0c84bd8850327e4db3b0d8151c5a63a, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -55422,7 +55513,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7888022603337633388}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.872, z: 0}
+  m_LocalPosition: {x: 0, y: 0.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7888022603567726016}
@@ -55493,7 +55584,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: f844e2c5e30f6b5489f49e69dd60684a, type: 2}
+  m_Texture: {fileID: 8400000, guid: d0c84bd8850327e4db3b0d8151c5a63a, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -55542,8 +55633,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.159}
-  m_SizeDelta: {x: 2.4, y: 2.4}
+  m_AnchoredPosition: {x: 0, y: -0.094}
+  m_SizeDelta: {x: 1.175, y: 1.375}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7912326344162684207
 GameObject:

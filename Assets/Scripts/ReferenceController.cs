@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using TMPro;
 
 public class ReferenceController : MonoBehaviour
 {
     private GameObject managersParent;
     public PlayerController playerController;
     public SceneController sceneController;
+
+    public Transform playerPositionMain;
+    public Transform playerPositionMirror;
+
+    public TMP_Text mirrorSurgeryStageTxt;
 
     void Awake()
     {
@@ -39,16 +45,28 @@ public class ReferenceController : MonoBehaviour
     public void NextPlayerSurgeryStage ()
     {
         playerController.NextPatientPlayerSurgeryStage();
+        mirrorSurgeryStageTxt.text = "SURGERY STAGE: " + playerController.playerMaterialID + "";
     }
 
     public void BackPlayerSurgeryStage ()
     {
         playerController.BackPatientPlayerSurgeryStage();
+        mirrorSurgeryStageTxt.text = "SURGERY STAGE: " + playerController.playerMaterialID + "";
     }
 
     public void ChangePlayerSurgeryStage (int id)
     {
         playerController.PatientPlayerSurgeryStageChange(id);
+    }
+
+    public void ChangePlayerPositionForMain ()
+    {
+        playerController.ChangePlayerPosition(playerPositionMain);
+    }
+
+    public void ChangePlayerPositionForMirror ()
+    {
+        playerController.ChangePlayerPosition(playerPositionMirror);
     }
 
     public void ExitToMenu ()

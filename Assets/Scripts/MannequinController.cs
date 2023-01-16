@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MannequinController : MonoBehaviour
 {
     public Material[] mannequinMaterials;
     public int materialID = 0;
+
+    public TMP_Text surgeryStageTxt;
 
     public void ChangeMannequinSurgeryStage (int id)
     {
@@ -28,6 +31,7 @@ public class MannequinController : MonoBehaviour
             materialID++;
         }
         
+        surgeryStageTxt.text = "SURGERY STAGE: " + materialID + "";
         GameObject body = GameObject.FindGameObjectWithTag("MannequinBody");
         body.GetComponent<SkinnedMeshRenderer>().material = mannequinMaterials[materialID];
     }
@@ -43,6 +47,7 @@ public class MannequinController : MonoBehaviour
             materialID--;
         }
 
+        surgeryStageTxt.text = "SURGERY STAGE: " + materialID + "";
         GameObject body = GameObject.FindGameObjectWithTag("MannequinBody");
         body.GetComponent<SkinnedMeshRenderer>().material = mannequinMaterials[materialID];
     }
