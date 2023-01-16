@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
     public GameObject[] xrPlayers;
     public GameObject newSpawnedPlayer;
     public Transform spawnLocationMenu, spawnLocationHospital, spawnLocationLivingroom;
-    public GameObject menuTeleportArea;
 
     [Header("XRPlayer1 Body Materials")]
     public Material[] playerMaterials1;
@@ -43,8 +42,8 @@ public class PlayerController : MonoBehaviour
         playerID = 0;
         
         // update teleportation area's interaction manager & teleportation provider
-        GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().teleportationProvider = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<TeleportationProvider>();
-        GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().interactionManager = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<XRInteractionManager>();
+        //GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().teleportationProvider = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<TeleportationProvider>();
+        //GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().interactionManager = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<XRInteractionManager>();
     }
 
     public void DestroyPlayers()
@@ -65,8 +64,8 @@ public class PlayerController : MonoBehaviour
         playerID = id;
 
         // update teleportation area's interaction manager & teleportation provider
-        GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().teleportationProvider = newSpawnedPlayer.GetComponentInChildren<TeleportationProvider>();
-        GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().interactionManager = newSpawnedPlayer.GetComponentInChildren<XRInteractionManager>();
+        //GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().teleportationProvider = newSpawnedPlayer.GetComponentInChildren<TeleportationProvider>();
+        //GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().interactionManager = newSpawnedPlayer.GetComponentInChildren<XRInteractionManager>();
 
         GameObject.DontDestroyOnLoad(newSpawnedPlayer);
     }
@@ -74,12 +73,12 @@ public class PlayerController : MonoBehaviour
     public void UpdateTeleportationAnchorReferences()
     {
         // update teleportation anchors' interaction managers & teleportation providers
-        GameObject[] tutorialTeleportationAnchors = GameObject.FindGameObjectsWithTag("TeleportAnchor");
-        foreach (GameObject obj in tutorialTeleportationAnchors)
-        {
-            obj.GetComponent<TeleportationAnchor>().teleportationProvider = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<TeleportationProvider>();
-            obj.GetComponent<TeleportationAnchor>().interactionManager = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<XRInteractionManager>();
-        }
+        //GameObject[] tutorialTeleportationAnchors = GameObject.FindGameObjectsWithTag("TeleportAnchor");
+        //foreach (GameObject obj in tutorialTeleportationAnchors)
+        //{
+            //obj.GetComponent<TeleportationAnchor>().teleportationProvider = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<TeleportationProvider>();
+            //obj.GetComponent<TeleportationAnchor>().interactionManager = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<XRInteractionManager>();
+        //}
     }
 
     public void IncreasePlayerHeight ()
