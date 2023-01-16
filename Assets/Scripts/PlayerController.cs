@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("XRPlayer1 Body Materials")]
     public Material[] playerMaterials1;
+    public int playerMaterialID;
 
     void Awake()
     {
@@ -161,6 +162,34 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("PNo patient player found and no materials setup");
         }
+    }
+
+    public void NextPatientPlayerSurgeryStage ()
+    {
+        if (playerMaterialID == (playerMaterials1.Length - 1))
+        {
+            playerMaterialID = 0;
+        }
+        else
+        {
+            playerMaterialID++;
+        }
+        
+        GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1[playerMaterialID];
+    }
+
+    public void BackPatientPlayerSurgeryStage ()
+    {
+        if (playerMaterialID == 0)
+        {
+            playerMaterialID = (playerMaterials1.Length - 1);
+        }
+        else
+        {
+            playerMaterialID--;
+        }
+        
+        GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1[playerMaterialID];
     }
 
     public void ScreenFadeOutIn ()
