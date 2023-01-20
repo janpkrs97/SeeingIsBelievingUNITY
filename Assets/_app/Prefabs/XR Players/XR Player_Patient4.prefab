@@ -7007,7 +7007,7 @@ MonoBehaviour:
   lowerArmBoneLeft: {fileID: 5750472211713582675}
   upperArmBoneRight: {fileID: 5750472211670170100}
   lowerArmBoneRight: {fileID: 5750472210372353178}
-  scalePct: 0.05
+  scalePct: 0.015
 --- !u!1 &5750472211544581567
 GameObject:
   m_ObjectHideFlags: 0

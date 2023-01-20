@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public Material[] playerMaterials1;
     public int playerMaterialID;
 
+    public GameObject duplicatedPlayer;
+
     void Awake()
     {
         // destroy 2nd manager object when menu scene is reloaded
@@ -62,6 +64,7 @@ public class PlayerController : MonoBehaviour
         spawnLocationMenu = spawnedPlayers[0].transform;
         newSpawnedPlayer = Instantiate(xrPlayers[id], spawnLocationMenu.position, spawnLocationMenu.rotation);
         playerID = id;
+        duplicatedPlayer.GetComponentInChildren<CalibratePlayerSize>().ResetDuplicatedPlayer();
 
         // update teleportation area's interaction manager & teleportation provider
         //GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().teleportationProvider = newSpawnedPlayer.GetComponentInChildren<TeleportationProvider>();
@@ -85,24 +88,28 @@ public class PlayerController : MonoBehaviour
     {
         GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
         spawnedPlayer.GetComponentInChildren<CalibratePlayerSize>().GrowHeight();
+        duplicatedPlayer.GetComponentInChildren<CalibratePlayerSize>().GrowHeight();
     }
 
     public void DecreasePlayerHeight ()
     {
         GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
         spawnedPlayer.GetComponentInChildren<CalibratePlayerSize>().ShrinkHeight();
+        duplicatedPlayer.GetComponentInChildren<CalibratePlayerSize>().ShrinkHeight();
     }
 
     public void IncreasePlayerArms ()
     {
         GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
         spawnedPlayer.GetComponentInChildren<CalibratePlayerSize>().GrowArms();
+        duplicatedPlayer.GetComponentInChildren<CalibratePlayerSize>().GrowArms();
     }
 
     public void DecreasePlayerArms ()
     {
         GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
         spawnedPlayer.GetComponentInChildren<CalibratePlayerSize>().ShrinkArms();
+        duplicatedPlayer.GetComponentInChildren<CalibratePlayerSize>().ShrinkArms();
     }
 
     public void VisualizeFullBody ()
