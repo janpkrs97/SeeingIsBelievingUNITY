@@ -7256,12 +7256,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2c912176c238c46b016b41d5389ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mannequinMaterials:
+  referenceController: {fileID: 1520312263}
+  playerController: {fileID: 0}
+  mannequinMaterialsR:
   - {fileID: 2100000, guid: d81a08e36282aa049bdf06afde3a9696, type: 2}
   - {fileID: 2100000, guid: 14fa5b2e646737943a558748ee6e7623, type: 2}
   - {fileID: 2100000, guid: 57a48d5461ef51a4ea45a4951a4eeaab, type: 2}
   - {fileID: 2100000, guid: 034fbf7858174ab45be0b44bbd022216, type: 2}
   - {fileID: 2100000, guid: 2f5086b77c2f80d478dd4dd163c1acb5, type: 2}
+  mannequinMaterialsS:
+  - {fileID: 2100000, guid: da461446ea206ef4c9b577f9c419f777, type: 2}
+  - {fileID: 2100000, guid: ef5924951467b2345ba4f82e74a15c58, type: 2}
+  - {fileID: 2100000, guid: 1c1cf06d6223f5648bb0066e8f2d0444, type: 2}
+  - {fileID: 2100000, guid: 95500132e4080e04484ba7323707e84a, type: 2}
+  - {fileID: 2100000, guid: 20f4d247a2cb97b439bbe8ee144ce4a4, type: 2}
   materialID: 0
   surgeryStageTxt: {fileID: 2308200794797157193}
 --- !u!1 &2308200794139329179

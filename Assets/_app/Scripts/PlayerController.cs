@@ -18,8 +18,12 @@ public class PlayerController : MonoBehaviour
     public Transform spawnLocationMenu, spawnLocationHospital, spawnLocationLivingroom;
 
     [Header("XRPlayer1 Body Materials")]
-    public Material[] playerMaterials1;
+    [Tooltip("Player1 Realistic Materials")]
+    public Material[] playerMaterials1R;
+    [Tooltip("Player1 Stylized Materials")]
+    public Material[] playerMaterials1S;
     public int playerMaterialID;
+    public int playerMaterialStyle;
 
     public GameObject duplicatedPlayer;
 
@@ -145,12 +149,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void AvatarStyle (int id)
+    {
+        playerMaterialStyle = id;
+
+        if (playerMaterialStyle == 0) // Style: Realistic
+        {
+            GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1R[playerMaterialID];
+        }
+        else // Style: Stylized
+        {
+            GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1S[playerMaterialID];
+        }
+    }
+
     public void PatientPlayerSurgeryStageChange (int id)
     {
         if (GameObject.FindGameObjectWithTag("Player").name.Contains("Patient1"))
         {
             Debug.Log("Patient1 player found");
-            GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1[id];
+            GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1R[id];
         }
         else if (GameObject.FindGameObjectWithTag("Player").name == "XR Player_Patient2")
         {
@@ -172,30 +190,62 @@ public class PlayerController : MonoBehaviour
 
     public void NextPatientPlayerSurgeryStage ()
     {
-        if (playerMaterialID == (playerMaterials1.Length - 1))
+        if (playerMaterialStyle == 0) // Style: Realistic
         {
-            playerMaterialID = 0;
+            if (playerMaterialID == (playerMaterials1R.Length - 1))
+            {
+                playerMaterialID = 0;
+            }
+            else
+            {
+                playerMaterialID++;
+            }
+            
+            GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1R[playerMaterialID];
         }
-        else
+        else // Style: Stylized
         {
-            playerMaterialID++;
+            if (playerMaterialID == (playerMaterials1S.Length - 1))
+            {
+                playerMaterialID = 0;
+            }
+            else
+            {
+                playerMaterialID++;
+            }
+            
+            GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1S[playerMaterialID];
         }
-        
-        GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1[playerMaterialID];
     }
 
     public void BackPatientPlayerSurgeryStage ()
     {
-        if (playerMaterialID == 0)
+        if (playerMaterialStyle == 0) // Style: Realistic
         {
-            playerMaterialID = (playerMaterials1.Length - 1);
+            if (playerMaterialID == 0)
+            {
+                playerMaterialID = (playerMaterials1R.Length - 1);
+            }
+            else
+            {
+                playerMaterialID--;
+            }
+            
+            GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1R[playerMaterialID];
         }
-        else
+        else // Style: Stylized
         {
-            playerMaterialID--;
+            if (playerMaterialID == 0)
+            {
+                playerMaterialID = (playerMaterials1S.Length - 1);
+            }
+            else
+            {
+                playerMaterialID--;
+            }
+            
+            GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1S[playerMaterialID];
         }
-        
-        GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1[playerMaterialID];
     }
 
     public void ScreenFadeOutIn ()
