@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class RemoteControllableButton : Button
 {
     public bool isRemoteControllable = true;
 
-    public Text buttonText;
-    public Text buttonCategory;
+    public TMP_Text buttonText;
+    public TMP_Text buttonCategory;
 
     private bool _remoteInteractable = true;
     private bool _localInteractable = true;
