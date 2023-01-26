@@ -7453,7 +7453,7 @@ GameObject:
   - component: {fileID: 9103680543137318457}
   m_Layer: 6
   m_Name: Ch21_Pants
-  m_TagString: PlayerLegs
+  m_TagString: PlayerLowerBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

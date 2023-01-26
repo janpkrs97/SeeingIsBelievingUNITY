@@ -2,25 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Handles the functionality of automatically adjusting the height of the mirror's camera to accomodate various user heights.
 public class MirrorCameraController : MonoBehaviour
 {
-    public void IncreaseHeight()
+    public void Refocus ()
     {
-        float prevPosY = this.gameObject.transform.position.y;
-        float newPosY = prevPosY + 0.05f;
-        this.gameObject.transform.position = new Vector3 (this.gameObject.transform.position.x, newPosY, this.gameObject.transform.position.z);
-    }
-
-    public void DecreaseHeight()
-    {
-        float prevPosY = this.gameObject.transform.position.y;
-        float newPosY = prevPosY - 0.05f;
-        this.gameObject.transform.position = new Vector3 (this.gameObject.transform.position.x, newPosY, this.gameObject.transform.position.z);
-    }
-
-    public void Refocus()
-    {
-        float playerHeadPosY = GameObject.FindGameObjectWithTag("PlayerHead").transform.position.y;
-        this.gameObject.transform.position = new Vector3 (this.gameObject.transform.position.x, playerHeadPosY, this.gameObject.transform.position.z);
+        float _playerHeadPosY = GameObject.FindGameObjectWithTag("PlayerHead").transform.position.y;
+        this.gameObject.transform.position = new Vector3 (this.gameObject.transform.position.x, _playerHeadPosY, this.gameObject.transform.position.z);
     }
 }

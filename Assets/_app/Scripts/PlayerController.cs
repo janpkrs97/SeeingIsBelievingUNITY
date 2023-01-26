@@ -1,197 +1,172 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.XR;
-using UnityEngine.XR.Interaction.Toolkit;
 
+// Handles all the functionalities relevant to the XR player.
 public class PlayerController : MonoBehaviour
 {
-    //public static PlayerController instance;
-
-    [Header("XR Player Avatar ID")]
-    public int playerID;
-
-    [Header("XR Player GameObjects")]
+    [Header("GameObjects")]
+    [Tooltip("The available character options.")]
     public GameObject[] xrPlayers;
-    public GameObject newSpawnedPlayer;
-    public Transform spawnLocationMenu, spawnLocationHospital, spawnLocationLivingroom;
 
-    [Header("XRPlayer1 Body Materials")]
-    [Tooltip("Player1 Realistic Materials")]
-    public Material[] playerMaterials1R;
-    [Tooltip("Player1 Stylized Materials")]
-    public Material[] playerMaterials1S;
-    public int playerMaterialID;
-    public int playerMaterialStyle;
-
+    [Tooltip("The duplicated character used during the character size calibration process.")]
     public GameObject duplicatedPlayer;
 
-    void Awake()
-    {
-        // destroy 2nd manager object when menu scene is reloaded
-        /*if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else if (instance != this)
-        {
-            DestroyImmediate(gameObject);
-        }*/
-    }
+    [Header("Transforms")]
+    [Tooltip("The player's menu spawn location.")]
+    public Transform spawnLocationMenu;
 
-    void Start() 
+    [Tooltip("The player's hospital spawn location.")]
+    public Transform spawnLocationHospital;
+
+    [Tooltip("The player's home spawn location.")]
+    public Transform spawnLocationHome;
+
+    [Header("Materials")]
+    [Tooltip("The realistic materials for character 1.")]
+    public Material[] playerMaterials1R;
+    
+    [Tooltip("The stylized materials for character 1.")]
+    public Material[] playerMaterials1S;
+
+    [Header("Integers")]
+    [Tooltip("The integer used to track the active surgery stage.")]
+    public int playerMaterialID;
+    
+    [Header("Booleans")]
+    [Tooltip("The boolean used to track the visualization style preference.")]
+    public bool realisticMaterialStyle;
+
+    private GameObject _spawnedPlayer; // Actively spawned character object.
+
+    // Currently using single variables for skin meshes - this might need to change depending on MedicalVR's DL output.
+    private SkinnedMeshRenderer _playerUpperBodySkinMesh;
+    private SkinnedMeshRenderer _playerLowerBodySkinMesh;
+    private SkinnedMeshRenderer _playerBody;
+    private int _playerID; // Counter tracking the spawned character ID.
+
+    void Start () 
     {
-        //spawnLocationMenu = GetComponentInChildren<Transform>();
+        // Spawn null character in main menu
         Instantiate(xrPlayers[0], spawnLocationMenu.position, spawnLocationMenu.rotation);
-        playerID = 0;
-        
-        // update teleportation area's interaction manager & teleportation provider
-        //GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().teleportationProvider = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<TeleportationProvider>();
-        //GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().interactionManager = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<XRInteractionManager>();
+        _playerID = 0;
     }
 
-    public void DestroyPlayers()
+    // Destroy all possible characters.
+    public void DestroyPlayer ()
     {
-        GameObject[] spawnedPlayers = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] _spawnedPlayers = GameObject.FindGameObjectsWithTag("Player");
         
-        foreach (GameObject players in spawnedPlayers)
+        foreach (GameObject gO in _spawnedPlayers)
         {
-            Destroy(players);
+            Destroy(gO);
         }
     }
 
+    // Spawn a new character and reset the duplicated character's size.
     public void SpawnAvatar (int id)
     {
-        GameObject[] spawnedPlayers = GameObject.FindGameObjectsWithTag("Player");
-        spawnLocationMenu = spawnedPlayers[0].transform;
-        newSpawnedPlayer = Instantiate(xrPlayers[id], spawnLocationMenu.position, spawnLocationMenu.rotation);
-        playerID = id;
-        duplicatedPlayer.GetComponentInChildren<CalibratePlayerSize>().ResetDuplicatedPlayer();
-
-        // update teleportation area's interaction manager & teleportation provider
-        //GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().teleportationProvider = newSpawnedPlayer.GetComponentInChildren<TeleportationProvider>();
-        //GameObject.FindGameObjectWithTag("TeleportArea").GetComponentInChildren<TeleportationArea>().interactionManager = newSpawnedPlayer.GetComponentInChildren<XRInteractionManager>();
-
-        GameObject.DontDestroyOnLoad(newSpawnedPlayer);
+        _spawnedPlayer = Instantiate(xrPlayers[id], spawnLocationMenu.position, spawnLocationMenu.rotation);
+        _playerID = id;
+        FindSkinMeshReferences();
+        duplicatedPlayer.GetComponentInChildren<CalibratePlayerSize>().ResetPlayerSize();
+        GameObject.DontDestroyOnLoad(_spawnedPlayer);
     }
 
-    public void UpdateTeleportationAnchorReferences()
-    {
-        // update teleportation anchors' interaction managers & teleportation providers
-        //GameObject[] tutorialTeleportationAnchors = GameObject.FindGameObjectsWithTag("TeleportAnchor");
-        //foreach (GameObject obj in tutorialTeleportationAnchors)
-        //{
-            //obj.GetComponent<TeleportationAnchor>().teleportationProvider = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<TeleportationProvider>();
-            //obj.GetComponent<TeleportationAnchor>().interactionManager = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<XRInteractionManager>();
-        //}
-    }
-
+    // Increase the (duplicated) character and its duplicate's height.
     public void IncreasePlayerHeight ()
     {
-        GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
-        spawnedPlayer.GetComponentInChildren<CalibratePlayerSize>().GrowHeight();
+        _spawnedPlayer.GetComponentInChildren<CalibratePlayerSize>().GrowHeight();
         duplicatedPlayer.GetComponentInChildren<CalibratePlayerSize>().GrowHeight();
     }
 
+    // Decrease the (duplicated) character and its duplicate's height.
     public void DecreasePlayerHeight ()
     {
-        GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
-        spawnedPlayer.GetComponentInChildren<CalibratePlayerSize>().ShrinkHeight();
+        _spawnedPlayer.GetComponentInChildren<CalibratePlayerSize>().ShrinkHeight();
         duplicatedPlayer.GetComponentInChildren<CalibratePlayerSize>().ShrinkHeight();
     }
 
+    // Increase the (duplicated) character and its duplicate's arm length.
     public void IncreasePlayerArms ()
     {
-        GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
-        spawnedPlayer.GetComponentInChildren<CalibratePlayerSize>().GrowArms();
+        _spawnedPlayer.GetComponentInChildren<CalibratePlayerSize>().GrowArms();
         duplicatedPlayer.GetComponentInChildren<CalibratePlayerSize>().GrowArms();
     }
 
+    // Decrease the (duplicated) character and its duplicate's arm length.
     public void DecreasePlayerArms ()
     {
-        GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
-        spawnedPlayer.GetComponentInChildren<CalibratePlayerSize>().ShrinkArms();
+        _spawnedPlayer.GetComponentInChildren<CalibratePlayerSize>().ShrinkArms();
         duplicatedPlayer.GetComponentInChildren<CalibratePlayerSize>().ShrinkArms();
     }
 
+    // Find the skin mesh references of the currently selected character. 
+    public void FindSkinMeshReferences ()
+    {
+        _playerUpperBodySkinMesh = GameObject.FindGameObjectWithTag("PlayerUpperBody").GetComponent<SkinnedMeshRenderer>();
+        _playerLowerBodySkinMesh = GameObject.FindGameObjectWithTag("PlayerLowerBody").GetComponent<SkinnedMeshRenderer>();
+        _playerBody = GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>();
+    }
+
+    // Change the character's body visualization to full body.
     public void VisualizeFullBody ()
     {
-        GameObject.FindGameObjectWithTag("PlayerLegs").GetComponent<SkinnedMeshRenderer>().enabled = true;
-        GameObject[] upperBody = GameObject.FindGameObjectsWithTag("PlayerUpperBody");
-
-        foreach (GameObject obj  in upperBody)
+        if (_playerUpperBodySkinMesh == null || _playerLowerBodySkinMesh == null)
         {
-            obj.GetComponent<SkinnedMeshRenderer>().enabled = true;
+            FindSkinMeshReferences();
         }
+
+        _playerUpperBodySkinMesh.enabled = true;
+        _playerLowerBodySkinMesh.enabled = true;
     }
 
+    // Change the character's body visualization to upper body only.
     public void VisualizeUpperBodyOnly ()
     {
-        GameObject.FindGameObjectWithTag("PlayerLegs").GetComponent<SkinnedMeshRenderer>().enabled = false;
-        GameObject[] upperBody = GameObject.FindGameObjectsWithTag("PlayerUpperBody");
-
-        foreach (GameObject obj  in upperBody)
+        if (_playerUpperBodySkinMesh == null || _playerLowerBodySkinMesh == null)
         {
-            obj.GetComponent<SkinnedMeshRenderer>().enabled = true;
+            FindSkinMeshReferences();
         }
+
+        _playerUpperBodySkinMesh.enabled = true;
+        _playerLowerBodySkinMesh.enabled = false;
     }
 
+    // Change the character's body visualization to face only.
     public void VisualizeFaceOnly ()
     {
-        GameObject.FindGameObjectWithTag("PlayerLegs").GetComponent<SkinnedMeshRenderer>().enabled = false;
-        GameObject[] upperBody = GameObject.FindGameObjectsWithTag("PlayerUpperBody");
-
-        foreach (GameObject obj  in upperBody)
+        if (_playerUpperBodySkinMesh == null || _playerLowerBodySkinMesh == null)
         {
-            obj.GetComponent<SkinnedMeshRenderer>().enabled = false;
+            FindSkinMeshReferences();
         }
+
+        _playerUpperBodySkinMesh.enabled = false;
+        _playerLowerBodySkinMesh.enabled = false;
     }
 
+    // Change the character's visualization style preference.
     public void AvatarStyle (int id)
     {
-        playerMaterialStyle = id;
-
-        if (playerMaterialStyle == 0) // Style: Realistic
+        if (id == 0)
         {
-            GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1R[playerMaterialID];
-        }
-        else // Style: Stylized
-        {
-            GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1S[playerMaterialID];
-        }
-    }
-
-    public void PatientPlayerSurgeryStageChange (int id)
-    {
-        if (GameObject.FindGameObjectWithTag("Player").name.Contains("Patient1"))
-        {
-            Debug.Log("Patient1 player found");
-            GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1R[id];
-        }
-        else if (GameObject.FindGameObjectWithTag("Player").name == "XR Player_Patient2")
-        {
-            Debug.Log("Patient2 player found but no materials setup");
-        }
-        else if (GameObject.FindGameObjectWithTag("Player").name == "XR Player_Patient3")
-        {
-            Debug.Log("Patient3 player found but no materials setup");
-        }
-        else if (GameObject.FindGameObjectWithTag("Player").name == "XR Player_Patient4")
-        {
-            Debug.Log("Patient4 player found but no materials setup");
+            realisticMaterialStyle = true;
+            _playerBody.material = playerMaterials1R[playerMaterialID];
         }
         else
         {
-            Debug.Log("PNo patient player found and no materials setup");
+            realisticMaterialStyle = false;
+            _playerBody.material = playerMaterials1S[playerMaterialID];
         }
     }
 
+    // Changes the character's active material to the next stage.
     public void NextPatientPlayerSurgeryStage ()
     {
-        if (playerMaterialStyle == 0) // Style: Realistic
+        // Check the visualization style preference.
+        if (realisticMaterialStyle)
         {
+            // Check whether the active surgery stage is the last available stage. TRUE: Reset to first surgery stage. FALSE: Go to next surgery stage.
             if (playerMaterialID == (playerMaterials1R.Length - 1))
             {
                 playerMaterialID = 0;
@@ -201,10 +176,11 @@ public class PlayerController : MonoBehaviour
                 playerMaterialID++;
             }
             
-            GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1R[playerMaterialID];
+            _playerBody.material = playerMaterials1R[playerMaterialID];
         }
-        else // Style: Stylized
+        else
         {
+            // Check whether the active surgery stage is the last available stage. TRUE: Reset to first surgery stage. FALSE: Go to next surgery stage.
             if (playerMaterialID == (playerMaterials1S.Length - 1))
             {
                 playerMaterialID = 0;
@@ -214,14 +190,17 @@ public class PlayerController : MonoBehaviour
                 playerMaterialID++;
             }
             
-            GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1S[playerMaterialID];
+            _playerBody.material = playerMaterials1S[playerMaterialID];
         }
     }
 
+    // Changes the character's active material to the previous stage.
     public void BackPatientPlayerSurgeryStage ()
     {
-        if (playerMaterialStyle == 0) // Style: Realistic
+        // Check the visualization style preference.
+        if (realisticMaterialStyle)
         {
+            // Check whether the active surgery stage is the first available stage. TRUE: Go to last surgery stage. FALSE: Go to previous surgery stage.
             if (playerMaterialID == 0)
             {
                 playerMaterialID = (playerMaterials1R.Length - 1);
@@ -231,10 +210,11 @@ public class PlayerController : MonoBehaviour
                 playerMaterialID--;
             }
             
-            GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1R[playerMaterialID];
+            _playerBody.material = playerMaterials1R[playerMaterialID];
         }
-        else // Style: Stylized
+        else
         {
+            // Check whether the active surgery stage is the first available stage. TRUE: Go to last surgery stage. FALSE: Go to previous surgery stage.
             if (playerMaterialID == 0)
             {
                 playerMaterialID = (playerMaterials1S.Length - 1);
@@ -244,66 +224,28 @@ public class PlayerController : MonoBehaviour
                 playerMaterialID--;
             }
             
-            GameObject.FindGameObjectWithTag("Body").GetComponent<SkinnedMeshRenderer>().material = playerMaterials1S[playerMaterialID];
+            _playerBody.material = playerMaterials1S[playerMaterialID];
         }
     }
 
-    public void ScreenFadeOutIn ()
-    {
-        GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
-        spawnedPlayer.GetComponentInChildren<SyncVRScreenFade>().FadeOut();
-        spawnedPlayer.GetComponentInChildren<SyncVRScreenFade>().FadeIn(); 
-    }
-
+    // Creates a fade in effect by calling the SyncVRScreenFade component on the player camera.
     public void ScreenFadeIn ()
     {
-        GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
-        spawnedPlayer.GetComponentInChildren<SyncVRScreenFade>().FadeIn();
+        _spawnedPlayer.GetComponentInChildren<SyncVRScreenFade>().FadeIn();
     }
 
+    // Creates a fade out effect by calling the SyncVRScreenFade component on the player camera.
     public void ScreenFadeOut ()
     {
-        GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
-        spawnedPlayer.GetComponentInChildren<SyncVRScreenFade>().FadeOut();
+        _spawnedPlayer.GetComponentInChildren<SyncVRScreenFade>().FadeOut();
     }
 
-    public void SceneChanged (int id)
-    {
-        GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
-
-        // TODO: fix players not spawning in world-specific locations
-        if (id == 0)
-        {
-            //
-            //spawnedPlayer.transform.position = spawnLocationMenu.position;
-            //spawnedPlayer.transform.rotation = spawnLocationMenu.rotation;
-        }
-        else if (id == 1)
-        {
-            //GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
-            spawnedPlayer.transform.position = spawnLocationHospital.position;
-            spawnedPlayer.transform.rotation = spawnLocationHospital.rotation;
-        }
-        else if (id == 2)
-        {
-            //GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
-            spawnedPlayer.transform.position = spawnLocationLivingroom.position;
-            spawnedPlayer.transform.rotation = spawnLocationLivingroom.rotation;
-        }
-        else
-        {
-            //GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
-            spawnedPlayer.transform.position = spawnLocationMenu.position;
-            spawnedPlayer.transform.rotation = spawnLocationMenu.rotation;
-        }
-    }
-
+    // Handles physically moving the character for scene changes and (de)activation of the mirror scenario.
     public void ChangePlayerPosition (Transform t)
     {
         ScreenFadeOut();
-        GameObject spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
-        spawnedPlayer.transform.position = t.position;
-        spawnedPlayer.transform.rotation = t.rotation;
+        _spawnedPlayer.transform.position = t.position;
+        _spawnedPlayer.transform.rotation = t.rotation;
         ScreenFadeIn();
     }
 }

@@ -3248,7 +3248,7 @@ GameObject:
   - component: {fileID: 7065029136972649904}
   m_Layer: 6
   m_Name: Ch31_Body
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3819,7 +3819,7 @@ GameObject:
   - component: {fileID: 8653548896708100622}
   m_Layer: 6
   m_Name: Ch31_Collar
-  m_TagString: Untagged
+  m_TagString: PlayerUpperBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10521,7 +10521,7 @@ GameObject:
   - component: {fileID: 9037802071450674177}
   m_Layer: 6
   m_Name: Ch31_Pants
-  m_TagString: PlayerLegs
+  m_TagString: PlayerLowerBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

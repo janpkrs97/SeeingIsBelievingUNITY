@@ -2,6 +2,7 @@
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 [CustomEditor(typeof(RemoteControllableButton))]
 public class RemoteControllableButtonEditor : UnityEditor.UI.ButtonEditor
@@ -11,8 +12,8 @@ public class RemoteControllableButtonEditor : UnityEditor.UI.ButtonEditor
         RemoteControllableButton targetButton = (RemoteControllableButton)target;
         targetButton.isRemoteControllable = (bool)EditorGUILayout.Toggle("Is Remote Controllable", targetButton.isRemoteControllable);
 
-        targetButton.buttonText = (Text)EditorGUILayout.ObjectField("Button Text", targetButton.buttonText, typeof(Text), true);
-        targetButton.buttonCategory = (Text)EditorGUILayout.ObjectField("Category Text", targetButton.buttonCategory, typeof(Text), true);
+        targetButton.buttonText = (TMP_Text)EditorGUILayout.ObjectField("Button Text", targetButton.buttonText, typeof(TMP_Text), true);
+        targetButton.buttonCategory = (TMP_Text)EditorGUILayout.ObjectField("Category Text", targetButton.buttonCategory, typeof(TMP_Text), true);
  
         if (GUI.changed)
         {

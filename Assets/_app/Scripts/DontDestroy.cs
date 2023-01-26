@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DontDestroy : MonoBehaviour
+// Used by the manager scripts to ensure they are carried over when a new scene loads.
+public class DontDestroy : MonoBehaviour 
 {
-    void Awake ()
+    void Awake () 
     {
         GameObject.DontDestroyOnLoad(this.gameObject);
     }

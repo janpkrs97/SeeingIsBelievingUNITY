@@ -3,34 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Handles all required functionalities when switching to a new scene.
 public class SceneController : MonoBehaviour
 {
-    public int sceneID;
+    [Tooltip("The <PlayerController> script under the <Player Manager> object.")]
     public PlayerController playerController;
 
+    private int _sceneID; // 0 = Menu | 1 = Hospital | 2 = Home
+
+    // When a scene change is called, first move the player's position and then load the new scene.
     public void ChangeScene (int id) 
     {
-        sceneID = id;
-        playerController.SceneChanged(id);
+        _sceneID = id;
 
-        if (id == 0)
+        if (_sceneID == 0)
         {
-            playerController.ScreenFadeOut();
-            Destroy(GameObject.FindGameObjectWithTag("Manager"));
+            playerController.ChangePlayerPosition(playerController.spawnLocationMenu);
+            Destroy(GameObject.FindGameObjectWithTag("Manager")); // Destroy the Manager game object to avoid there being a duplicate.
+            playerController.DestroyPlayer(); // Destroy the player's character as a new one will be created at the start of the Menu scene.
             SceneManager.LoadScene("Menu");
-            playerController.ScreenFadeIn();
         }
-        else if (id == 1)
+        else if (_sceneID == 1)
         {
-            playerController.ScreenFadeOut();
+            playerController.ChangePlayerPosition(playerController.spawnLocationHospital);
             SceneManager.LoadScene("Hospital");
-            playerController.ScreenFadeIn();
         }
-        else if (id == 2)
+        else if (_sceneID == 2)
         {
-            playerController.ScreenFadeOut();
+            playerController.ChangePlayerPosition(playerController.spawnLocationHome);
             SceneManager.LoadScene("Home");
-            playerController.ScreenFadeIn();
         }
     }
 }

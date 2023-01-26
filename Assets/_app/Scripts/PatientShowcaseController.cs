@@ -2,23 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Handles the functionality of improving visual feedback during the character selection UI.
 public class PatientShowcaseController : MonoBehaviour
 {
+    [Header("GameObjects")]
+    [Tooltip("The platforms characters are standing on.")]
     public GameObject[] showcasePlatforms;
+
+    [Tooltip("The spot lights characters are standing underneath.")]
     public GameObject[] spotLights;
-    public Material defaultMat, selectedMat;
+
+    [Header("Materials")]
+    [Tooltip("The material used for all inactive character platforms.")]
+    public Material defaultMat; 
+
+    [Tooltip("The material used for the active character platform.")]
+    public Material selectedMat;
 
     public void PatientSelected (int id)
     {
+        // Check which character is currently selected. 0 - User selected the back button. Otherwise, change the material of the selected character's platform and activate its spotlight.
         if (id == 0)
         {
-            foreach (GameObject obj in showcasePlatforms)
+            // Reset all character platforms to their default material.
+            foreach (GameObject sP in showcasePlatforms)
             {
-                obj.GetComponent<Renderer>().material = defaultMat;
+                sP.GetComponent<Renderer>().material = defaultMat; 
 
-                foreach (GameObject obje in spotLights)
+                // Deactivate all character spot lights.
+                foreach (GameObject sL in spotLights)
                 {
-                    obje.SetActive(false);
+                    sL.SetActive(false); 
                 }
             }
         }
@@ -29,4 +43,3 @@ public class PatientShowcaseController : MonoBehaviour
         }
     }
 }
-

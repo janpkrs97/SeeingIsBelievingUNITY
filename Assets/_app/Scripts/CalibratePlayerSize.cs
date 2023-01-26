@@ -2,55 +2,60 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Handles the main menu's functionality for resizing a character's height and arm length.
 public class CalibratePlayerSize : MonoBehaviour
 {
-    public Transform upperArmBoneLeft, lowerArmBoneLeft;
-    public Transform upperArmBoneRight, lowerArmBoneRight;
-    public Transform originalUpperArmBoneLeft, originalLowerArmBoneLeft, originalUpperArmBoneRight, originalLowerArmBoneRight;
+    [Header("Transforms")]
+    [Tooltip("The left upper arm transform target of character.")]
+    public Transform upperArmBoneLeft;
+    
+    [Tooltip("The left lower arm transform target of character.")]
+    public Transform lowerArmBoneLeft;
+    
+    [Tooltip("The right upper arm transform target of character.")]
+    public Transform upperArmBoneRight;
+    
+    [Tooltip("The right lower arm transform target of character.")]
+    public Transform lowerArmBoneRight;
+    
+    [Header("Floats")]
+    [Tooltip("The float value the transform targets are scaled by.")]
     public float scalePct = 0.015f;
-    private float scaleHeight, scaleArms;
+    
+    private float _scaleHeight, _scaleArms; // Used for easier script readability.
 
-    public void Start() 
-    {
-        originalUpperArmBoneLeft = upperArmBoneLeft;
-        originalLowerArmBoneLeft = lowerArmBoneLeft;
-        originalUpperArmBoneRight = upperArmBoneRight;
-        originalLowerArmBoneRight = lowerArmBoneRight;
+    // Increases the height of the character by scalePct.
+    public void GrowHeight () 
+    { 
+        _scaleHeight = this.transform.localScale.y + scalePct;
+        this.gameObject.transform.localScale = new Vector3(_scaleHeight, _scaleHeight, _scaleHeight);
     }
 
-    public void GrowHeight ()
-    {
-        scaleHeight = this.transform.localScale.y + scalePct;
-        this.gameObject.transform.localScale = new Vector3(scaleHeight, scaleHeight, scaleHeight);
+    // Decreases the height of the character by scalePct.
+    public void ShrinkHeight () 
+    { 
+        _scaleHeight = this.transform.localScale.y - scalePct;
+        this.gameObject.transform.localScale = new Vector3(_scaleHeight, _scaleHeight, _scaleHeight);
     }
 
-    public void ShrinkHeight ()
-    {
-        scaleHeight = this.transform.localScale.y - scalePct;
-        this.gameObject.transform.localScale = new Vector3(scaleHeight, scaleHeight, scaleHeight);
+    // Increases the length of the character's arms by scalePct.
+    public void GrowArms () 
+    { 
+        _scaleArms = lowerArmBoneLeft.localScale.y + scalePct;
+        lowerArmBoneLeft.localScale = upperArmBoneLeft.localScale = lowerArmBoneRight.localScale = upperArmBoneRight.localScale = new Vector3(_scaleArms, _scaleArms, _scaleArms);
     }
 
-    public void GrowArms ()
-    {
-        scaleArms = lowerArmBoneLeft.localScale.y + scalePct;
-        lowerArmBoneLeft.localScale = upperArmBoneLeft.localScale = lowerArmBoneRight.localScale = upperArmBoneRight.localScale = 
-            new Vector3(scaleArms, scaleArms, scaleArms);
+    // Decreases the length of the character's arms by scalePct.
+    public void ShrinkArms () 
+    { 
+        _scaleArms = lowerArmBoneLeft.localScale.y - scalePct;
+        lowerArmBoneLeft.localScale = upperArmBoneLeft.localScale = lowerArmBoneRight.localScale = upperArmBoneRight.localScale = new Vector3(_scaleArms, _scaleArms, _scaleArms);
     }
-
-    public void ShrinkArms ()
-    {
-        scaleArms = lowerArmBoneLeft.localScale.y - scalePct;
-        lowerArmBoneLeft.localScale = upperArmBoneLeft.localScale = lowerArmBoneRight.localScale = upperArmBoneRight.localScale = 
-            new Vector3(scaleArms, scaleArms, scaleArms);
-    }
-
-    public void ResetDuplicatedPlayer()
-    {
-        // reset player height
+    
+    // Resets character height and arm scale to the original transforms - needed when users go back and (re)select a different character.
+    public void ResetPlayerSize () 
+    { 
         this.gameObject.transform.localScale = new Vector3(1, 1, 1);
-
-        // reset player arms
-        lowerArmBoneLeft.localScale = upperArmBoneLeft.localScale = lowerArmBoneRight.localScale = upperArmBoneRight.localScale = 
-            new Vector3(1, 1, 1);
+        lowerArmBoneLeft.localScale = upperArmBoneLeft.localScale = lowerArmBoneRight.localScale = upperArmBoneRight.localScale = new Vector3(1, 1, 1);
     }
 }

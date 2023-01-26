@@ -3,121 +3,113 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+// Handles the functionality of changing the mannequin's body texture when switching between surgery stages, based on the visualization style preference.
 public class MannequinController : MonoBehaviour
 {
+    [Header("Scripts")]
+    [Tooltip("The <ReferenceController> script under the <Reference Manager> object.")]
     public ReferenceController referenceController;
-    public PlayerController playerController;
+    
+    [Header("Materials")]
+    [Tooltip("The realistic surgery stage materials.")]
     public Material[] mannequinMaterialsR;
-    public Material[] mannequinMaterialsS;
-    public int materialID = 0;
 
+    [Tooltip("The stylized surgery stage materials.")]
+    public Material[] mannequinMaterialsS;
+
+    [Header("UI Elements")]
+    [Tooltip("The mannequin scenario's menu text which displays the active surgery stage.")]
     public TMP_Text surgeryStageTxt;
+
+    private int _materialID = 0; // Used to track the active surgery stage.
+    private PlayerController _playerController; // Reference to the external PlayerController script.
+    private SkinnedMeshRenderer _body;
 
     public void Start ()
     {
-        playerController = referenceController.playerController;
+        _playerController = referenceController.playerController;
+        _body = GameObject.FindGameObjectWithTag("MannequinBody").GetComponent<SkinnedMeshRenderer>();
 
-        if (playerController.playerMaterialStyle == 0) // Style: Realistic
+        // Initialize the mannequin's material according to the visualization style preference.
+        if (_playerController.realisticMaterialStyle) 
         {
-            GameObject.FindGameObjectWithTag("MannequinBody").GetComponent<SkinnedMeshRenderer>().material = mannequinMaterialsR[materialID];
+            _body.material = mannequinMaterialsR[_materialID];
         }
-        else // Style: Stylized
+        else 
         {
-            GameObject.FindGameObjectWithTag("MannequinBody").GetComponent<SkinnedMeshRenderer>().material = mannequinMaterialsS[materialID];
+            _body.material = mannequinMaterialsS[_materialID];
         }    
     }
 
-    public void ChangeMannequinSurgeryStage (int id)
-    {
-        GameObject[] bodies = GameObject.FindGameObjectsWithTag("MannequinBody");
-
-        foreach (GameObject obj in bodies)
-        {
-            obj.GetComponent<SkinnedMeshRenderer>().material = mannequinMaterialsR[id];
-        }
-    }
-
+    // Changes the mannequin's active material to the next stage.
     public void NextMannequinSurgeryStage ()
     {
-        GameObject body = GameObject.FindGameObjectWithTag("MannequinBody");
-
-        if (playerController.playerMaterialStyle == 0) // Style: Realistic
+        // Check the visualization style preference.
+        if (_playerController.realisticMaterialStyle) 
         {
-            if (materialID == (mannequinMaterialsR.Length - 1))
+            // Check whether the active surgery stage is the last available stage. TRUE: Reset to first surgery stage. FALSE: Go to next surgery stage.
+            if (_materialID == (mannequinMaterialsR.Length - 1))
             {
-                materialID = 0;
+                _materialID = 0;
             }
-            else
+            else 
             {
-                materialID++;
-            }
-
-            body.GetComponent<SkinnedMeshRenderer>().material = mannequinMaterialsR[materialID];
-        }
-        else // Style: Stylized
-        {
-            if (materialID == (mannequinMaterialsS.Length - 1))
-            {
-                materialID = 0;
-            }
-            else
-            {
-                materialID++;
-            }
-            
-            body.GetComponent<SkinnedMeshRenderer>().material = mannequinMaterialsS[materialID];
-        }
-        
-        surgeryStageTxt.text = "SURGERY STAGE: " + materialID + "";
-    }
-
-    public void BackMannequinSurgeryStage ()
-    {
-        GameObject body = GameObject.FindGameObjectWithTag("MannequinBody");
-
-        if (playerController.playerMaterialStyle == 0) // Style: Realistic
-        {
-            if (materialID == 0)
-            {
-                materialID = (mannequinMaterialsR.Length - 1);
-            }
-            else
-            {
-                materialID--;
+                _materialID++;
             }
 
-            body.GetComponent<SkinnedMeshRenderer>().material = mannequinMaterialsR[materialID];
-        }
-        else // Style: Stylized
-        {
-            if (materialID == 0)
-            {
-                materialID = (mannequinMaterialsR.Length - 1);
-            }
-            else
-            {
-                materialID--;
-            }
-            
-            body.GetComponent<SkinnedMeshRenderer>().material = mannequinMaterialsS[materialID];
-        }
-        
-        surgeryStageTxt.text = "SURGERY STAGE: " + materialID + "";
-    }
-
-    /*public void BackMannequinSurgeryStage () OLDONE for reference
-    {
-        if (materialID == 0)
-        {
-            materialID = (mannequinMaterialsR.Length - 1);
+            _body.GetComponent<SkinnedMeshRenderer>().material = mannequinMaterialsR[_materialID];
         }
         else
         {
-            materialID--;
+            // Check whether the active surgery stage is the last available stage. TRUE: Reset to first surgery stage. FALSE: Go to next surgery stage.
+            if (_materialID == (mannequinMaterialsS.Length - 1)) 
+            {
+                _materialID = 0;
+            }
+            else 
+            {
+                _materialID++;
+            }
+            
+            _body.GetComponent<SkinnedMeshRenderer>().material = mannequinMaterialsS[_materialID];
         }
+        
+        surgeryStageTxt.text = "SURGERY STAGE: " + _materialID + "";
+    }
 
-        surgeryStageTxt.text = "SURGERY STAGE: " + materialID + "";
-        GameObject body = GameObject.FindGameObjectWithTag("MannequinBody");
-        body.GetComponent<SkinnedMeshRenderer>().material = mannequinMaterialsR[materialID];
-    }*/
+    // Changes the mannequin's active material to the previous stage.
+    public void BackMannequinSurgeryStage ()
+    {
+        // Check the visualization style preference.
+        if (_playerController.realisticMaterialStyle)
+        {
+            // Check whether the active surgery stage is the first available stage. TRUE: Go to last surgery stage. FALSE: Go to previous surgery stage.
+            if (_materialID == 0)
+            {
+                _materialID = (mannequinMaterialsR.Length - 1);
+            }
+            else
+            {
+                _materialID--;
+            }
+
+            _body.GetComponent<SkinnedMeshRenderer>().material = mannequinMaterialsR[_materialID]; 
+        }
+        else
+        {
+            // Check whether the active surgery stage is the first available stage. TRUE: Go to last surgery stage. FALSE: Go to previous surgery stage.
+            if (_materialID == 0)
+            {
+                _materialID = (mannequinMaterialsR.Length - 1);
+            }
+            else
+            {
+                _materialID--;
+            }
+            
+            _body.GetComponent<SkinnedMeshRenderer>().material = mannequinMaterialsS[_materialID];
+        }
+        
+        surgeryStageTxt.text = "SURGERY STAGE: " + _materialID + "";
+    }
 }
